@@ -1,0 +1,36 @@
+{
+  "name": "team-management-app",
+  "version": "1.0.0",
+  "description": "Team management application",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mongoose": "^5.9.12",
+    "nodemon": "^2.0.3",
+    "passport-local": "^1.0.0",
+    "passport": "^0.4.1",
+    "passport-local-mongoose": "^6.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JAMKT/team-management-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JAMKT/team-management-app/issues"
+  },
+  "homepage": "https://github.com/JAMKT/team-management-app#readme"
+}
