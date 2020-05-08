@@ -1,4 +1,4 @@
-# team-management-app
+# Team Management App
 Team management application developed using the MERN stack (MongoDB, Express.js, React.js and Node.js).
 
 ## Getting started
