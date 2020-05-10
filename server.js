@@ -5,6 +5,8 @@ const passport = require("passport");
 const session = require("express-session");
 const sessionSecret = require('./config/sessionConfig').secret;
 
+const users = require('./routes/api/Users');
+
 const app = express();
 
 //BodyParser Middleware
@@ -37,6 +39,9 @@ app.use(session({
 app.use(passport.initialize());
 // Initialize passport session
 app.use(passport.session());
+
+//User Routes
+app.use('/api/users', users);
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
