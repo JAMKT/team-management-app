@@ -24,6 +24,10 @@ npm run server
 # Run the React client only
 npm run client
 
+# Compile SASS code to CSS
+cd client
+npm run sass
+
 ```
 
 ***Notes:*** 
