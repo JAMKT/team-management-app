@@ -15,7 +15,7 @@ npm install
 # Install dependencies on the client side
 npm client-install
 
-# Run the client & server with concurrently
+# Run the client & server with concurrently (+ compile SASS and minify compiled CSS code)
 npm run dev
 
 # Run the Express server only
@@ -24,9 +24,8 @@ npm run server
 # Run the React client only
 npm run client
 
-# Compile SASS code to CSS
-cd client
-npm run sass
+# Compile SASS code to CSS and minify CSS (ONLY)
+gulp
 
 ```
 
