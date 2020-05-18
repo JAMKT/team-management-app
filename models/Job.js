@@ -18,6 +18,10 @@ const jobSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Responsability"
     }],
+    company: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Company"
+    },
     //Automatically gets the date of creation of the job
     created: {
         type: Date,

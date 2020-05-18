@@ -5,6 +5,10 @@ var mongoose = require('mongoose');
 var taskSchema = new mongoose.Schema({
     name: String,
     description: String,
+    project: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Project"
+    },
     //The author parameter is linked with the user collection, getting his id and username
     author: {
         id: {
@@ -20,7 +24,8 @@ var taskSchema = new mongoose.Schema({
         },
         username: String,
     }],
-    tags:[{
+    status: String,
+    tags: [{
         name: String
     }],
     startDate: Date,
