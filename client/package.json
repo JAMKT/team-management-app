@@ -8,10 +8,12 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "sass": "^1.26.5"
   },
   "scripts": {
     "start": "react-scripts start",
+    "sass": "sass src/styles:build/styles",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
