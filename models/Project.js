@@ -21,6 +21,15 @@ var projectSchema = new mongoose.Schema({
             username: String
         }
     ],
+    editors: [
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            },
+            username: String
+        }
+    ],
     //The tasks parameter is linked with the task collection, getting the task_id
     tasks: [
         {
