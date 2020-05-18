@@ -17,6 +17,20 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    job_title: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Job"
+    },
+    contacts: [
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            },
+            username: String,
+            nickname: String
+        }
+    ],
     //Automatically gets the date of creation of the user
     created: {
         type: Date,
