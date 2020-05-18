@@ -6,6 +6,33 @@ const passport = require("passport");
 //User Model
 const User = require('../../models/User');
 
+// GET
+// Get users
+router.get('/', (req, res) => {
+    User.find({}, (err, users) => {
+        res.send(users);
+    });
+});
+
+// GET
+// Get current user 
+router.get('/current-user', (req, res) => {
+    res.send(req.user);
+});
+
+// GET
+// Get single user by its id
+router.get('/:id', (req, res) => {
+    User.findById(req.params.id, (err, user) => {
+        if(err){
+            res.send('User not found.');
+        } else {
+            res.send(user);
+        }
+        
+    });
+});
+
 // POST
 // Register new user
 router.post('/register', async (req, res) => {
