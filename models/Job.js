@@ -14,9 +14,9 @@ const jobSchema = new mongoose.Schema({
         },
         username: String
     },
-    responsabilities: [{
+    responsibilities: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Responsability"
+        ref: "Responsibility"
     }],
     company: {
         type: mongoose.Schema.Types.ObjectId,
