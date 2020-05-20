@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Faq = require('../../models/Faq');
-// const FaqsCategories = require('../../models/FaqsCategory');
+const Category = require('../../models/Category');
 
 // GET
 // Get faqs
@@ -14,11 +14,11 @@ router.get('/', (req, res) => {
 
 // GET
 // Get faqs' categories
-// router.get('/categories', (req, res) => {
-//     FaqsCategories.find({}, (err, categories) => {
-//         err ? res.send('No categories found.') : res.send(categories);
-//     });
-// });
+router.get('/categories', (req, res) => {
+    Category.find({}, (err, categories) => {
+        err ? res.send('No categories found.') : res.send(categories);
+    });
+});
 
 // GET
 // Get single faq by its id
