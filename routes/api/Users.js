@@ -125,4 +125,8 @@ router.get('/logout', (req, res) => {
     req.logout();
 });
 
+// TODO ----------------------------
+// UPDATE
+// DELETE
+
 module.exports = router;
