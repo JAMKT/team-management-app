@@ -161,6 +161,18 @@ router.post('/:id', async (req, res) => {
     }
 });
 
+// DELETE 
+// Delete a user
+router.get('/delete/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
 
+    if (user.isOwner) {
+        // Handle logic
+    } else {
+        User.findByIdAndRemove({ _id: user._id }, (err) => {
+            err ? res.send(err) : res.send('User has been deleted!');
+        });
+    }
+});
 
 module.exports = router;
