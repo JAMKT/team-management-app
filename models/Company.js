@@ -1,11 +1,16 @@
 //Require mongoose package
 const mongoose = require('mongoose');
+const passportMongoose = require('passport-local-mongoose');
 
 const companySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         unique: true
+    },
+    password: {
+        type: String,
+        required: true
     },
     description: String,
     owner: {
@@ -36,6 +41,9 @@ const companySchema = new mongoose.Schema({
         default: Date.now()
     }
 });
+
+// Makes it easier to authenticate users by adding methods with a plugin
+companySchema.plugin(passportMongoose);
 
 //Exports our companySchema with Company as a reference, this reference will be used in other models
 module.exports = mongoose.model("Company", companySchema); 
