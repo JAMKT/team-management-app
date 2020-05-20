@@ -7,6 +7,7 @@ const jobSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    description: String,
     lead: {
         user: {
             type: mongoose.Schema.Types.ObjectId,
