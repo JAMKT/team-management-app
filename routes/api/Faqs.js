@@ -28,6 +28,14 @@ router.get('/:id', (req, res) => {
     });
 });
 
+// GET
+// Get single category by its id
+router.get('/categories/:id', (req, res) => {
+    Category.findById(req.params.id, (err, category) => {
+        err ? res.send('Category not found.') : res.send(category);
+    });
+});
+
 // POST
 // Post a question
 router.post('/', async (req, res) => {
