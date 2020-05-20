@@ -22,14 +22,43 @@ router.get('/:id', (req, res) => {
 // GET
 // Get responsibilities by company_id
 router.get('/company/:company_id', (req, res) => {
-    Responsibility.find({"company": req.params.company_id}, (err, responsibilities) => {
+    Responsibility.find({ "company": req.params.company_id }, (err, responsibilities) => {
         err ? res.send('Responsibilities not found.') : res.send(responsibilities);
     });
 });
 
+// POST
+// Create a responsibility
+router.post('/', (req, res) => {
+    const data = req.body;
+
+    try {
+        const newResponsibility = new Responsibility({
+            name: data.name,
+            description: data.description,
+            company: data.company
+        });
+
+        newResponsibility.save();
+        res.send(newResponsibility);
+    } catch (err) {
+        res.send('Could not create this responsibility.');
+    }
+});
+
+//DELETE
+//Delete a single responsibility
+router.delete('/:id', (req, res) => {
+    try {
+        Responsibility.findByIdAndRemove({ _id: req.params.id }, (err) => {
+            err ? res.send(err) : res.send('Responsibility has been deleted!');
+        });
+    } catch (err) {
+        res.send('Responsibility could not be deleted. Try again.');
+    }
+});
+
 // TODO:
-// Post
 // Update
-// Delete
 
 module.exports = router;
