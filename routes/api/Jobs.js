@@ -61,11 +61,16 @@ router.post('/:id', (req, res) => {
     }
 });
 
-// TODO! ------------------------------- //
 // DELETE
 // Delete a job
-router.delete('/:id', (req, res) => {
-    // Trace relationships
+router.get('/delete/:id', (req, res) => {
+    try {
+        Job.findByIdAndRemove({ _id: req.params.id }, (err) => {
+            err ? res.send(err) : res.send('Job has been deleted!');
+        });
+    } catch (err) {
+        res.send('Job could not be deleted. Try again.');
+    }
 });
 
 module.exports = router;
