@@ -35,15 +35,6 @@ const userSchema = new mongoose.Schema({
         ref: "Job"
     },
     description: String,
-    contacts: [
-        {
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User"
-            },
-            username: String
-        }
-    ],
     company: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Company"
