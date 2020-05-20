@@ -58,7 +58,7 @@ app.use('/api/jobs', jobs);
 app.use('/api/onboarding', onboardings);
 app.use('/api/projects', projects);
 app.use('/api/responsibilities', responsibilities);
-app.use('/api/tasks', tasks);
+app.use('/api/:project_id/tasks', tasks);
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
