@@ -6,6 +6,11 @@ const onboardingSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Company"
     },
+    description: String,
+    jobs: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Job"
+    }],
     editors: [
         {
             user: {

@@ -7,6 +7,7 @@ const companySchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    description: String,
     owner: {
         user: {
             type: mongoose.Schema.Types.ObjectId,
