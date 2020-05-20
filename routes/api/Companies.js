@@ -77,7 +77,7 @@ router.post('/:id', (req, res) => {
 // TODO! ------------------------------- //
 // DELETE
 // Delete a company
-router.delete('/:id', (req, res) => {
+router.get('/delete/:id', (req, res) => {
     // Trace relationships
 });
 

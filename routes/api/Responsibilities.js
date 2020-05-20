@@ -67,7 +67,7 @@ router.post('/:id', (req, res) => {
 
 //DELETE
 //Delete a single responsibility
-router.delete('/:id', (req, res) => {
+router.get('/delete/:id', (req, res) => {
     try {
         Responsibility.findByIdAndRemove({ _id: req.params.id }, (err) => {
             err ? res.send(err) : res.send('Responsibility has been deleted!');

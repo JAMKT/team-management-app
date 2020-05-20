@@ -63,7 +63,7 @@ router.post('/:id', (req, res) => {
 
 // DELETE
 // Delete a job
-router.delete('/:id', (req, res) => {
+router.get('/delete/:id', (req, res) => {
     try {
         Job.findByIdAndRemove({ _id: req.params.id }, (err) => {
             err ? res.send(err) : res.send('Job has been deleted!');
