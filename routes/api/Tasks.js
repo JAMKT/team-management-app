@@ -70,8 +70,8 @@ router.post('/:project_id/:id', (req, res) => {
                 endDate: data.endDate
             }
         }, { new: true })
-            .then(response => { res.send(response); })
-            .catch(err => { res.send('Could not update this task.'); });
+        .then(response => { res.send(response); })
+        .catch(err => { res.send('Could not update this task.'); });
     } catch (err) {
         res.send('Could not update this task.');
     }
