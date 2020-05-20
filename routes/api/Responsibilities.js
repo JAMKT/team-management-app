@@ -46,6 +46,25 @@ router.post('/', (req, res) => {
     }
 });
 
+// POST
+// Update a responsibility
+router.post('/:id', (req, res) => {
+    const data = req.body;
+
+    try {
+        Responsibility.findOneAndUpdate({ _id: req.params.id }, {
+            $set: {
+                name: data.name,
+                description: data.description
+            }
+        }, { new: true })
+            .then(response => { res.send(response); })
+            .catch(err => { res.send('Could not update this responsibility.'); });
+    } catch (err) {
+        res.send('Could not update this responsibility.');
+    }
+});
+
 //DELETE
 //Delete a single responsibility
 router.delete('/:id', (req, res) => {
