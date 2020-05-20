@@ -125,8 +125,42 @@ router.get('/logout', (req, res) => {
     req.logout();
 });
 
-// TODO ----------------------------
-// UPDATE
-// DELETE
+// POST
+// Update a user
+router.post('/:id', async (req, res) => {
+    const data = req.body;
+    let userPassword;
+
+    try {
+        // Check if the password provided is the same as the user's password or not
+        await bcrypt.compare(data.password, req.user.password, async (err, password) => {
+            if (password) {
+                userPassword = password;
+            } else {
+                const salt = await bcrypt.genSalt(10);
+                const hash = await bcrypt.hash(data.password, salt);
+    
+                userPassword = hash;
+            }
+        });
+
+        await User.findOneAndUpdate({ _id: req.params.id }, {
+            $set: {
+                firstName: data.firstName,
+                lastName: data.lastName,
+                username: data.username,
+                email: data.email,
+                password: userPassword,
+                description: (data.description) ? data.description : null
+            }
+        }, { new: true })
+        .then(response => { res.send(response); })
+        .catch(err => { res.send('Could not update this user.'); });
+    } catch(err) {
+        res.send(err);
+    }
+});
+
+
 
 module.exports = router;

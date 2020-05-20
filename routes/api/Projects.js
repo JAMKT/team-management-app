@@ -78,29 +78,25 @@ router.post('/:id', (req, res) => {
 
 // DELETE
 router.get('/delete/:id', async (req, res) => {
-    try {
-        // Make sure that the project's tasks are deleted first
-        const project = await Project.findOne({ _id: req.params.id });
+    // Make sure that the project's tasks are deleted first
+    const project = await Project.findOne({ _id: req.params.id });
 
-        // If there are tasks in this project, loop through them and delete them
-        // Afterwards, delete the project no matter what
-        if (project.tasks) {
-            const tasksArray = project.tasks;
+    // If there are tasks in this project, loop through them and delete them
+    // Afterwards, delete the project no matter what
+    if (project.tasks) {
+        const tasksArray = project.tasks;
 
-            tasksArray.forEach(async (task) => {
-                await Task.findByIdAndRemove({ _id: task }, (err, task) => {
-                    err ? res.send(err) : console.log('Task has been deleted!');
-                });
+        tasksArray.forEach(async (task) => {
+            await Task.findByIdAndRemove({ _id: task }, (err, task) => {
+                err ? res.send(err) : console.log('Task has been deleted!');
             });
-        }
-
-        // Delete the project
-        await Project.findByIdAndRemove({ _id: project._id }, (err) => {
-            err ? res.send(err) : res.send('Project has been deleted!');
         });
-    } catch (err) {
-        res.send('Project could not be deleted. Try again.');
     }
+
+    // Delete the project
+    await Project.findByIdAndRemove({ _id: project._id }, (err) => {
+        err ? res.send(err) : res.send('Project has been deleted!');
+    });
 });
 
 module.exports = router;
