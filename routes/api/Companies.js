@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const Category = requre('../../models/Category');
+const Category = require('../../models/Category');
 const Company = require('../../models/Company');
 const Faq = require('../../models/Faq');
 const Job = require('../../models/Job');
