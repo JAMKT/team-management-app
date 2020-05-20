@@ -1,7 +1,7 @@
 //Require mongoose package
 const mongoose = require('mongoose');
 
-const responsabilitySchema = new mongoose.Schema({
+const responsibilitySchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -12,12 +12,12 @@ const responsabilitySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Company"
     },
-    //Automatically gets the date of creation of the responsability
+    //Automatically gets the date of creation of the responsibility
     created: {
         type: Date,
         default: Date.now()
     }
 });
 
-//Exports our responsabilitySchema with Responsability as a reference, this reference will be used in other models
-module.exports = mongoose.model("Responsability", responsabilitySchema); 
+//Exports our responsibilitySchema with Responsibility as a reference, this reference will be used in other models
+module.exports = mongoose.model("Responsibility", responsibilitySchema); 

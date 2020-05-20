@@ -1,32 +1,42 @@
 const express = require('express');
+const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require("passport");
 const session = require("express-session");
 const sessionSecret = require('./config/sessionConfig').secret;
 
+// Require routes
 const users = require('./routes/api/Users');
+const companies = require('./routes/api/Companies');
+const faqs = require('./routes/api/Faqs');
+const jobs = require('./routes/api/Jobs');
+const onboardings = require('./routes/api/Onboardings');
+const projects = require('./routes/api/Projects');
+const responsibilities = require('./routes/api/Responsibilities');
+const tasks = require('./routes/api/Tasks');
 
-const app = express();
-
-//BodyParser Middleware
+// BodyParser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Passport Config
 require('./config/passport')(passport);
 
-//DB Congig
+// DB Config
 const db = require('./config/dbKeys').mongoURI;
 
-mongoose.set('useFindAndModify', false);
+// Connect to MongoDB
+mongoose.connect(db, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true, 
+    useFindAndModify: false,
+    useCreateIndex: true
+})
+.then(() => console.log('MongoDB Connected...'))
+.catch(err => console.log(err));
 
-//Connect to MongoDB
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB Connected...'))
-    .catch(err => console.log(err));
-
-// // Initialize sessions
+// Initialize sessions
 app.use(session({
     secret: sessionSecret,
     resave: false,
@@ -40,14 +50,21 @@ app.use(passport.initialize());
 // Initialize passport session
 app.use(passport.session());
 
-//User Routes
+// Routes
 app.use('/api/users', users);
+app.use('/api/companies', companies);
+app.use('/api/faqs', faqs);
+app.use('/api/jobs', jobs);
+app.use('/api/onboarding', onboardings);
+app.use('/api/projects', projects);
+app.use('/api/responsibilities', responsibilities);
+app.use('/api/tasks', tasks);
 
 app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
 });
 
+// Serve on specified port
 const port = require('./config/env').serverPORT;
-
 app.listen(port, () => console.log(`Server started on port ${port}`));

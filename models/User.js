@@ -3,6 +3,14 @@ const mongoose = require('mongoose');
 const passportMongoose = require('passport-local-mongoose');
 
 const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true,
@@ -22,25 +30,11 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    job_title: {
+    jobTitle: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Job"
     },
     description: String,
-    contacts: [
-        {
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User"
-            },
-            username: String,
-            nickname: String
-        }
-    ],
-    company: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Company"
-    },
     //Automatically gets the date of creation of the user
     created: {
         type: Date,
