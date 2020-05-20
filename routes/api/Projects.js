@@ -36,6 +36,7 @@ router.post('/', (req, res) => {
             team: data.team,
             company: data.company,
             tags: data.tags,
+            tasks: [],
             startDate: data.startDate,
             endDate: data.endDate
         });
@@ -88,7 +89,7 @@ router.get('/delete/:id', async (req, res) => {
 
             tasksArray.forEach(async (task) => {
                 await Task.findByIdAndRemove({ _id: task }, (err, task) => {
-                    err ? res.send(err) : res.send('Task has been deleted!');
+                    err ? res.send(err) : console.log('Task has been deleted!');
                 });
             });
         }

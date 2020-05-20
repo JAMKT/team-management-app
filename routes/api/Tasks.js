@@ -6,7 +6,7 @@ const Project = require('../../models/Project');
 
 // GET
 // Get tasks
-router.get('/', (req, res) => {
+router.get('/:project_id', (req, res) => {
     Task.find({}, (err, tasks) => {
         err ? res.send('No tasks found.') : res.send(tasks);
     });
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 
 // GET
 // Get single task by its id
-router.get('/:id', (req, res) => {
+router.get('/:project_id/:id', (req, res) => {
     Task.findById(req.params.id, (err, task) => {
         err ? res.send('Task not found.') : res.send(task);
     });
@@ -22,7 +22,7 @@ router.get('/:id', (req, res) => {
 
 // POST
 // Create a task
-router.post('/', (req, res) => {
+router.post('/:project_id', (req, res) => {
     const data = req.body;
 
     try {
@@ -43,11 +43,12 @@ router.post('/', (req, res) => {
         Project.findById(req.params.project_id, (err, actualProject) => {
             err ? res.send(err) : Task.create(newTask, (err, task) => {
                 err ? res.send(err) : task.save();
+
                 actualProject.tasks.push(task);
                 actualProject.save();
+                
+                res.send(task);
             });
-        }).then((task) => {
-            res.send(task);
         });
     } catch {
         res.send('Could not create this task.');
@@ -56,7 +57,7 @@ router.post('/', (req, res) => {
 
 // UPDATE
 // Update single task by id
-router.post('/:id', (req, res) => {
+router.post('/:project_id/:id', (req, res) => {
     try {
         Task.findByIdAndUpdate({ _id: req.params.id }, {
             $set: {
@@ -78,7 +79,7 @@ router.post('/:id', (req, res) => {
 
 // DELETE
 // Delete single task by id
-router.get('/delete/:id', (req, res) => {
+router.get('/:project_id/delete/:id', (req, res) => {
     //Find the task to delete
     Task.findByIdAndRemove(req.params.id, function (err) {
         err ? res.send(err) : res.send("Task deleted!")
