@@ -48,15 +48,14 @@ router.post('/register', async (req, res) => {
             password: hash,
             isOwner: data.isOwner,
             description: (data.description) ? data.description : null,
-            contacts: [],
-            company: (data.company) ? data.company : null // Check how the company's id can be added via the link
+            contacts: []
         });
 
         await newUser.save();
 
         // If the current user is not an owner, update their company's members array
         if (!newUser.isOwner) {
-            await Company.findOneAndUpdate({ _id: newUser.company }, {
+            await Company.findOneAndUpdate({ _id: data.companyId }, {
                 $addToSet: {
                     members: { 
                         user: newUser._id,  

@@ -35,10 +35,6 @@ const userSchema = new mongoose.Schema({
         ref: "Job"
     },
     description: String,
-    company: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Company"
-    },
     //Automatically gets the date of creation of the user
     created: {
         type: Date,

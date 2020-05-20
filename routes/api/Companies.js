@@ -47,17 +47,6 @@ router.post('/', (req, res) => {
 
         newCompany.save();
 
-        // Update owner's data
-        User.findOneAndUpdate({ _id: req.user._id }, {
-            $addToSet: {
-                company: newCompany._id
-            }
-        },
-        { new: true }, // Return the newly updated version of the document
-        (err, user) => {
-            err ? console.log('Could not update this user.') : console.log(user);
-        });
-
         res.send(newCompany);
     } catch (err) {
         res.send('Could not create this company.');
@@ -69,16 +58,20 @@ router.post('/', (req, res) => {
 router.post('/:id', (req, res) => {
     const data = req.body;
     
-    Company.findOneAndUpdate({ _id: req.params.id }, {
-        $set: {
-            name: data.name,
-            description: (data.description) ? data.description : null,
-            address: (data.address) ? data.address : null,
-            email: data.email
-        }
-    }, { new: true })
-    .then(response => { res.send(response); })
-    .catch(err => { res.send('Could not update this company.'); });
+    try {
+        Company.findOneAndUpdate({ _id: req.params.id }, {
+            $set: {
+                name: data.name,
+                description: (data.description) ? data.description : null,
+                address: (data.address) ? data.address : null,
+                email: data.email
+            }
+        }, { new: true })
+        .then(response => { res.send(response); })
+        .catch(err => { res.send('Could not update this company.'); });
+    } catch(err) {
+        res.send('Could not update this company.');
+    }
 });
 
 // TODO! ------------------------------- //
