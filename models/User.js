@@ -17,6 +17,11 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    //All the users by default will have a employee account
+    isOwner: {
+        type: Boolean,
+        default: false
+    },
     job_title: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Job"
