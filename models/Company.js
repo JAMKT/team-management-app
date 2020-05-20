@@ -21,7 +21,7 @@ const companySchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    people: [
+    members: [
         {
             user: {
                 type: mongoose.Schema.Types.ObjectId,

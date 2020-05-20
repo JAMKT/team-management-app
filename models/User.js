@@ -3,6 +3,14 @@ const mongoose = require('mongoose');
 const passportMongoose = require('passport-local-mongoose');
 
 const userSchema = new mongoose.Schema({
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true,
@@ -22,7 +30,7 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
-    job_title: {
+    jobTitle: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Job"
     },
@@ -33,8 +41,7 @@ const userSchema = new mongoose.Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User"
             },
-            username: String,
-            nickname: String
+            username: String
         }
     ],
     company: {

@@ -5,6 +5,7 @@ const passport = require("passport");
 
 //User Model
 const User = require('../../models/User');
+const Company = require('../../models/Company');
 
 // GET
 // Get users
@@ -31,32 +32,53 @@ router.get('/:id', (req, res) => {
 // POST
 // Register new user
 router.post('/register', async (req, res) => {
+    const data = req.body;
+
     // Encrypt the password
     const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(req.body.password, salt);
+    const hash = await bcrypt.hash(data.password, salt);
+
     // Create a new user
     try {
         const newUser = new User({
-            username: req.body.username,
-            email: req.body.email,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            username: data.username,
+            email: data.email,
             password: hash,
-            job_title: req.body.job_title,
-            company: req.body.company
+            isOwner: data.isOwner,
+            description: (data.description) ? data.description : null,
+            contacts: [],
+            company: (data.company) ? data.company : null // Check how the company's id can be added via the link
         });
 
-        newUser.save();
+        await newUser.save();
+
+        // If the current user is not an owner, update their company's members array
+        if (!newUser.isOwner) {
+            await Company.findOneAndUpdate({ _id: newUser.company }, {
+                $addToSet: {
+                    members: { 
+                        user: newUser._id,  
+                        username: newUser.username
+                    }
+                }
+            }, { new: true })
+            .then(response => { console.log(response); })
+            .catch(err => { console.log('Could not update this company.'); });
+        }
+
         res.status(200).send("Welcome to the team!");
 
     } catch (err) {
         // If there are errors: send an error
-        res.status(500)
-            .send("Error registering new user please try again.");
+        res.status(500).send(err);
     }
 });
 
 // POST
 // Login with user credentials
-//Handling login logic
+// Handling login logic
 router.post('/login', (req, res, next) => {
     let password = req.body.password;
     let email = req.body.email;
