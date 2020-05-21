@@ -117,9 +117,11 @@ router.post('/:id', (req, res) => {
                     }, 
                     { new: true }, // Return the newly updated version of the document
                     (err, category) => {
-                        err ? res.send('Could not update this category.') : res.send(category);
+                        err ? console.log('Could not update this category.') : console.log(category);
                     }); 
                 });
+
+                res.send(question);
         });
     } catch(err) {
         res.send(err);
