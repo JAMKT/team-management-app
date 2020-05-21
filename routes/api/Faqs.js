@@ -40,6 +40,7 @@ router.get('/categories/:id', (req, res) => {
 // Post a question
 router.post('/', async (req, res) => {
     const data = req.body;
+    const categories = data.categories;
 
     try {
         const newQuestion = new Faq({
@@ -54,16 +55,18 @@ router.post('/', async (req, res) => {
 
         await newQuestion.save();
 
-        await Category.findByIdAndUpdate({ _id: "5ec65408da0e490d5c1276c0" }, {
-            $addToSet: {
-                questions: {
-                    faq: newQuestion._id,
-                    question: newQuestion.question
+        await categories.forEach(category => {
+            Category.findByIdAndUpdate({ _id: category.id }, {
+                $addToSet: {
+                    questions: {
+                        faq: newQuestion._id,
+                        question: newQuestion.question
+                    }
                 }
-            }
-        }, { new: true })
-        .then(response => { res.send(response); })
-        .catch(err => { res.send('Could not update this category.'); });
+            }, { new: true })
+            .then(response => { res.send(response); })
+            .catch(err => { res.send('Could not update this category.'); });
+        });
     } catch(err) {
         res.send('Could not create this question.')
     }
@@ -90,8 +93,9 @@ router.post('/categories', (req, res) => {
 
 // POST
 // Update a question
-router.post('/:category_id/:id', (req, res) => {
+router.post('/:id', (req, res) => {
     const data = req.body;
+    const categories = data.categories;
 
     try {
         // Update actual question
@@ -105,17 +109,19 @@ router.post('/:category_id/:id', (req, res) => {
         (err, question) => {
             // Update question in its category as well
             err ? res.send('Could not update this question.') : 
-                Category.updateOne({ "_id": req.params.category_id, "questions": { $elemMatch: { "faq": req.params.id }} }, {
-                    $set: {
-                        "questions.$.question": data.question
-                    }
-                }, 
-                { new: true }, // Return the newly updated version of the document
-                (err, category) => {
-                    err ? res.send('Could not update this category.') : console.log(category);
-                    res.send(question);
+                categories.forEach(category => {
+                    Category.updateOne({ "_id": category.id, "questions": { $elemMatch: { "faq": req.params.id }} }, {
+                        $set: {
+                            "questions.$.question": question.question
+                        }
+                    }, 
+                    { new: true }, // Return the newly updated version of the document
+                    (err, category) => {
+                        err ? console.log('Could not update this category.') : console.log(category);
+                    }); 
                 });
-            // res.send(question);
+
+                res.send(question);
         });
     } catch(err) {
         res.send(err);

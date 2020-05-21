@@ -3,6 +3,16 @@
 
 ***2: In URLs, words that start with `:` are variables.***
 
+## Table of contents
+* [Companies](https://github.com/JAMKT/team-management-app/blob/master/API.md#companies)
+* [Faqs](https://github.com/JAMKT/team-management-app/blob/master/API.md#faqs)
+* [Jobs](https://github.com/JAMKT/team-management-app/blob/master/API.md#jobs)
+* [Onboarding](https://github.com/JAMKT/team-management-app/blob/master/API.md#onboarding)
+* [Projects](https://github.com/JAMKT/team-management-app/blob/master/API.md#projects)
+* [Responsibilities](https://github.com/JAMKT/team-management-app/blob/master/API.md#responsibilities)
+* [Tasks](https://github.com/JAMKT/team-management-app/blob/master/API.md#tasks)
+* [Users](https://github.com/JAMKT/team-management-app/blob/master/API.md#users)
+
 ## Companies
 ### Routes
 ```
@@ -29,7 +39,7 @@ GET:    /api/faqs/:id
 GET:    /api/faqs/categories/:id
 POST:   /api/faqs/
 POST:   /api/faqs/categories
-PUT:    /api/faqs/:category_id/:id
+PUT:    /api/faqs/:id
 DELETE: /api/faqs/delete/:id
 ```
 ### Fields
@@ -37,10 +47,16 @@ For **POST** (question):
 * company (id, string)
 * question (string)
 * answer (string)
+* categories (array of objects)
+    * one parameter inside of the categories array: id (id, string)
+        * this needs to be an array even if we only pass 1 id
 
 For **PUT** (question):
 * question (string)
 * answer (string)
+* categories (array of objects)
+    * one parameter inside of the categories array: id (id, string)
+        * this needs to be an array even if we only pass 1 id
 
 For **POST** (category):
 * name (string)

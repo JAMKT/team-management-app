@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Job = require('../../models/Job');
+const Onboarding = require('../../models/Onboarding');
 
 // GET
 // Get jobs
@@ -32,10 +33,15 @@ router.post('/', (req, res) => {
             responsibilities: (data.responsibilities) ? data.responsibilities : [],
             company: data.company
         });
-    
+
         newJob.save();
+
+        Onboarding.find({ company: newJob.company }, (err, foundOnboarding) => {
+            foundOnboarding[0].jobs.push(newJob);
+            foundOnboarding[0].save();
+        });
         res.send(newJob);
-    } catch(err) {
+    } catch (err) {
         res.send('Could not create this job.');
     }
 });
@@ -54,9 +60,9 @@ router.post('/:id', (req, res) => {
                 responsibilities: (data.responsibilities) ? data.responsibilities : []
             }
         }, { new: true })
-        .then(response => { res.send(response); })
-        .catch(err => { res.send('Could not update this job.'); });
-    } catch(err) {
+            .then(response => { res.send(response); })
+            .catch(err => { res.send('Could not update this job.'); });
+    } catch (err) {
         res.send('Could not update this job.');
     }
 });
