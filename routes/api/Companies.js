@@ -97,6 +97,10 @@ router.get('/delete/:id', async (req, res) => {
         err ? res.send(err) : console.log("Faq of " + company_id + " deleted");
     });
 
+    await Category.deleteMany({ company: company_id }, err => {
+        err ? res.send(err) : console.log("Categories of " + company_id + " deleted");
+    });
+
     await Project.find({ company: company_id }, (err, foundProject) => {
         foundProject.tasks.forEach((taskToDelete) => {
             Task.findByIdAndDelete({ _id: taskToDelete._id }, err => {
