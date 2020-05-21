@@ -90,32 +90,30 @@ router.post('/categories', (req, res) => {
 
 // POST
 // Update a question
-router.post('/:category_id/:id', async (req, res) => {
+router.post('/:category_id/:id', (req, res) => {
     const data = req.body;
 
     try {
         // Update actual question
-        await Faq.findByIdAndUpdate({ _id: req.params.id }, {
+        Faq.findOneAndUpdate({ _id: req.params.id }, {
             $set: {
                 question: data.question,
                 answer: data.answer
             }
-        }, { new: true })
-        .then(response => { console.log(response); })
-        .catch(err => { res.send('Could not update this question.'); });
-
-        // Update question in its category as well
-        await Category.findById(req.params.category_id, (err, category) => {
-            const questionsArray = category.questions;
-
-            questionsArray.forEach(question => {
-                if (question._id === req.params.id) {
-                    question.question = data.question;
-                }
-            });
-
-            category.save();
-            res.send(category);
+        }, 
+        { new: true },
+        (err, question) => {
+            // Update question in its category as well
+            err ? res.send('Could not update this question.') : 
+                Category.updateOne({ "_id": req.params.category_id, "questions": { $elemMatch: { "_id": req.params.id }} }, {
+                    $set: {
+                        "questions.$.question": question.question
+                    }
+                }, 
+                { new: true }, // Return the newly updated version of the document
+                (err, category) => {
+                    err ? res.send('Could not update this category.') : res.send(category);
+                });
         });
     } catch(err) {
         res.send(err);
