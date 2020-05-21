@@ -105,15 +105,17 @@ router.post('/:category_id/:id', (req, res) => {
         (err, question) => {
             // Update question in its category as well
             err ? res.send('Could not update this question.') : 
-                Category.updateOne({ "_id": req.params.category_id, "questions": { $elemMatch: { "_id": req.params.id }} }, {
+                Category.updateOne({ "_id": req.params.category_id, "questions": { $elemMatch: { "faq": req.params.id }} }, {
                     $set: {
-                        "questions.$.question": question.question
+                        "questions.$.question": data.question
                     }
                 }, 
                 { new: true }, // Return the newly updated version of the document
                 (err, category) => {
-                    err ? res.send('Could not update this category.') : res.send(category);
+                    err ? res.send('Could not update this category.') : console.log(category);
+                    res.send(question);
                 });
+            // res.send(question);
         });
     } catch(err) {
         res.send(err);
