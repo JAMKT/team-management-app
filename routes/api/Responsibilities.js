@@ -27,6 +27,14 @@ router.get('/company/:company_id', (req, res) => {
     });
 });
 
+// GET
+// Get single responsibilities by company_id
+router.get('/:id/company/:company_id', (req, res) => {
+    Responsibility.find({ _id: req.params.id, "company": req.params.company_id }, (err, responsibility) => {
+        err ? res.send('Responsibility not found.') : res.send(responsibility);
+    });
+});
+
 // POST
 // Create a responsibility
 router.post('/', (req, res) => {

@@ -33,9 +33,9 @@ router.post('/:project_id', (req, res) => {
                 id: req.user._id,
                 username: req.user.username
             },
-            assign: data.assign,
+            assignees: data.assignees,
             status: data.status,
-            tags: data.tags,
+            tags: (data.tags) ? data.tags : [],
             startDate: data.startDate,
             endDate: data.endDate
         });
@@ -63,9 +63,9 @@ router.post('/:project_id/:id', (req, res) => {
             $set: {
                 name: data.name,
                 description: data.description,
-                assign: data.assign,
+                assignees: data.assignees,
                 status: data.status,
-                tags: data.tags,
+                tags: (data.tags) ? data.tags : [],
                 startDate: data.startDate,
                 endDate: data.endDate
             }
