@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
             description: (data.description) ? data.description : null,
             team: data.team,
             company: data.company,
-            tags: data.tags,
+            tags: (data.tags) ? data.tags : [],
             tasks: [],
             startDate: data.startDate,
             endDate: data.endDate
@@ -64,7 +64,7 @@ router.post('/:id', (req, res) => {
                 description: (data.description) ? data.description : null,
                 team: data.team,
                 company: data.company,
-                tags: data.tags,
+                tags: (data.tags) ? data.tags : [],
                 startDate: data.startDate,
                 endDate: data.endDate
             }

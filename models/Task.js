@@ -13,7 +13,7 @@ var taskSchema = new mongoose.Schema({
         },
         username: String,
     },
-    assign: [{
+    assignees: [{
         id: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"

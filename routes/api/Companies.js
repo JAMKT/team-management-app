@@ -1,8 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
+const Category = require('../../models/Category');
 const Company = require('../../models/Company');
+const Faq = require('../../models/Faq');
 const Job = require('../../models/Job');
+const Onboarding = require('../../models/Onboarding');
+const Project = require('../../models/Project');
+const Responsibility = require('../../models/Responsibility');
+const Task = require('../../models/Task');
 const User = require('../../models/User');
 
 // GET
@@ -74,11 +80,53 @@ router.post('/:id', (req, res) => {
     }
 });
 
-// TODO! ------------------------------- //
 // DELETE
 // Delete a company
-router.get('/delete/:id', (req, res) => {
-    // Trace relationships
+router.get('/delete/:id', async (req, res) => {
+    const company_id = req.params.id;
+
+    await Job.deleteMany({ company: company_id }, err => {
+        err ? res.send(err) : Responsibility.deleteMany({ company: company_id }, err => {
+            err ? res.send(err) : Onboarding.deleteMany({ company: company_id }, err =>{
+                err ? res.send(err) : console.log("Onboarding of " + company_id + " deleted");
+            })
+        });
+    });
+
+    await Faq.deleteMany({ company: company_id }, err => {
+        err ? res.send(err) : console.log("Faq of " + company_id + " deleted");
+    });
+
+    await Project.find({ company: company_id }, (err, foundProject) => {
+        foundProject.tasks.forEach((taskToDelete) => {
+            Task.findByIdAndDelete({ _id: taskToDelete._id }, err => {
+                if(err){
+                    res.send(err);
+                }
+            });
+        });
+        console.log("Tasks of " + foundProject._id + " deleted");
+    });
+
+    await Project.deleteMany({ company: company_id }, err => {
+        err ? res.send(err) : console.log("Projects of" + company_id + " deleted");
+    });
+
+    await Company.findById(company_id, (err, foundCompany) => {
+        err ? res.send(err) : foundCompany.members.forEach((memberToDelete) => {
+            User.findByIdAndDelete({ _id: memberToDelete._id }, err => {
+                if (err) {
+                    res.send(err);
+                }
+            });
+        });
+
+        console.log("Users of " + company_id + " deleted");
+    });
+
+    await Company.findByIdAndDelete({ company: company_id }, err => {
+        err ? res.send(err) : res.send("Company deleted succesfully");
+    });
 });
 
 module.exports = router;
