@@ -224,7 +224,7 @@ router.get('/delete/:id', async (req, res) => {
                 console.log("Users of " + company_id + " deleted");
             });
         
-            await Company.findByIdAndRemove({ company: company_id }, err => {
+            await Company.findByIdAndRemove({ _id: company_id }, err => {
                 err ? res.send(err) : res.send("Company deleted succesfully");
             });
         });
