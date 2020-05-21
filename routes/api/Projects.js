@@ -70,9 +70,9 @@ router.post('/:id', (req, res) => {
             }
         }, { new: true })
         .then(response => { res.send(response); })
-        .catch(err => { res.send('Could not update this project.'); });
+        .catch(err => { res.send(err); });
     } catch(err) {
-        res.send('Could not update this project.');
+        res.send(err);
     }
 });
 

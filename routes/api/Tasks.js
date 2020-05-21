@@ -40,11 +40,11 @@ router.post('/:project_id', (req, res) => {
             endDate: data.endDate
         });
 
-        newTask.save();
-
         Project.findById(req.params.project_id, (err, actualProject) => {
             err ? res.send(err) : Task.create(newTask, (err, task) => {
-                err ? res.send(err) : task.save();
+                if (err) {
+                    res.send(err);
+                }
 
                 actualProject.tasks.push(task);
                 actualProject.save();
