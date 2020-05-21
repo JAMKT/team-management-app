@@ -6,11 +6,11 @@
 ## Companies
 ### Routes
 ```
-GET:    /api/users/
-GET:    /api/users/:id
-POST*:  /api/users/
-PUT*:   /api/users/:id
-DELETE: /api/users/delete/:id
+GET:    /api/companies/
+GET:    /api/companies/:id
+POST*:  /api/companies/
+PUT*:   /api/companies/:id
+DELETE: /api/companies/delete/:id
 ```
 ### Fields
 For both **POST** and **PUT**:
