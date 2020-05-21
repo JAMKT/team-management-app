@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
+// Require Models
 const Category = require('../../models/Category');
 const Company = require('../../models/Company');
 const Faq = require('../../models/Faq');
@@ -101,15 +102,17 @@ router.get('/delete/:id', async (req, res) => {
         err ? res.send(err) : console.log("Categories of " + company_id + " deleted");
     });
 
-    await Project.find({ company: company_id }, (err, foundProject) => {
-        foundProject.tasks.forEach((taskToDelete) => {
-            Task.findByIdAndDelete({ _id: taskToDelete._id }, err => {
-                if(err){
-                    res.send(err);
-                }
+    await Project.find({ company: company_id }, (err, project) => {
+        project.forEach((foundProject) => {
+            foundProject.tasks.forEach((taskToDelete) => {
+                Task.findByIdAndDelete({ _id: taskToDelete._id }, err => {
+                    if(err){
+                        res.send(err);
+                    }
+                });
             });
-        });
-        console.log("Tasks of " + foundProject._id + " deleted");
+            console.log("Tasks of " + foundProject._id + " deleted");
+        })
     });
 
     await Project.deleteMany({ company: company_id }, err => {
