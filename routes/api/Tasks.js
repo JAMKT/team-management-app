@@ -26,7 +26,7 @@ router.post('/:project_id', (req, res) => {
     const data = req.body;
 
     try {
-        newTask = new Task({
+        const newTask = new Task({
             name: data.name,
             description: data.description,
             author: {
@@ -39,6 +39,8 @@ router.post('/:project_id', (req, res) => {
             startDate: data.startDate,
             endDate: data.endDate
         });
+
+        newTask.save();
 
         Project.findById(req.params.project_id, (err, actualProject) => {
             err ? res.send(err) : Task.create(newTask, (err, task) => {
