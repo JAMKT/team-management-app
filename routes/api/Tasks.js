@@ -26,7 +26,7 @@ router.post('/:project_id', (req, res) => {
     const data = req.body;
 
     try {
-        newTask = new Task({
+        const newTask = new Task({
             name: data.name,
             description: data.description,
             author: {
@@ -42,7 +42,9 @@ router.post('/:project_id', (req, res) => {
 
         Project.findById(req.params.project_id, (err, actualProject) => {
             err ? res.send(err) : Task.create(newTask, (err, task) => {
-                err ? res.send(err) : task.save();
+                if (err) {
+                    res.send(err);
+                }
 
                 actualProject.tasks.push(task);
                 actualProject.save();
