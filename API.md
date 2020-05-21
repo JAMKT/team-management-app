@@ -13,7 +13,7 @@ PUT*:   /api/users/:id
 DELETE: /api/users/delete/:id
 ```
 ### Fields
-For both POST and PUT:
+For both **POST** and **PUT**:
 * name (string)
 * description (string, ***optional***)
 * address (string, ***optional***)
@@ -33,12 +33,12 @@ PUT:    /api/faqs/:id
 DELETE: /api/faqs/delete/:id
 ```
 ### Fields
-For both POST and PUT (question): 
+For both **POST** and **PUT** (question): 
 * company (id, string)
 * question (string)
 * answer (string)
 
-For POST (category):
+For **POST** (category):
 * name (string)
 * company (id, string)
 
@@ -53,14 +53,14 @@ PUT:    /api/jobs/:id
 DELETE: /api/jobs/delete/:id
 ```
 ### Fields
-For POST:
+For **POST**:
 * name (string)
 * description (string)
 * lead (string)
 * responsibilities (array of objects: Responsibilities, ***optional***)
 * company (id, string)
 
-For PUT:
+For **PUT**:
 * name (string)
 * description (string)
 * lead (string)
@@ -86,7 +86,7 @@ PUT:    /api/projects/:id
 DELETE: /api/projects/delete/:id
 ```
 ### Fields
-For both POST and PUT:
+For both **POST** and **PUT**:
 * name (string)
 * description (string, ***optional***)
 * team (array of objects: Users)
@@ -109,12 +109,12 @@ PUT:    /api/responsibilities/:id
 DELETE: /api/responsibilities/delete/:id
 ```
 ### Fields
-For POST:
+For **POST**:
 * name (string)
 * description (string)
 * company (id, string)
 
-For PUT:
+For **PUT**:
 * name (string)
 * description (string)
 
@@ -129,7 +129,7 @@ PUT:    /api/tasks/:project_id/:id
 DELETE: /api/tasks/:project_id/delete/:id
 ```
 ### Fields
-For both POST and PUT:
+For both **POST** and **PUT**:
 * name (string)
 * description (string)
 * assignees (array of objects: Users)
@@ -153,7 +153,7 @@ PUT:    /api/users/:id
 DELETE: /api/users/delete/:id
 ```
 ### Fields
-For POST (register):
+For **POST** (register):
 * firstName (string)
 * lastName (string)
 * username (string)
@@ -162,11 +162,11 @@ For POST (register):
 * isOwner (boolean)
 * description (string, ***optional***)
 
-For POST (login):
+For **POST** (login):
 * email (string)
 * password (string)
 
-For PUT (user profile):
+For **PUT** (user profile):
 * firstName (string)
 * lastName (string)
 * username (string)
