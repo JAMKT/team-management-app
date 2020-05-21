@@ -1,5 +1,6 @@
 # API routes and naming of fields
 ***1: The fields mentioned below are the ones that need to be used in the frontend for axios requests.***
+
 ***2: In URLs, words that start with `:` are variables.***
 
 ## Companies
