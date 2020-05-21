@@ -39,7 +39,7 @@ GET:    /api/faqs/:id
 GET:    /api/faqs/categories/:id
 POST:   /api/faqs/
 POST:   /api/faqs/categories
-PUT:    /api/faqs/:category_id/:id
+PUT:    /api/faqs/:id
 DELETE: /api/faqs/delete/:id
 ```
 ### Fields
@@ -49,10 +49,14 @@ For **POST** (question):
 * answer (string)
 * categories (array of objects)
     * one parameter inside of the categories array: id (id, string)
+        * this needs to be an array even if we only pass 1 id
 
 For **PUT** (question):
 * question (string)
 * answer (string)
+* categories (array of objects)
+    * one parameter inside of the categories array: id (id, string)
+        * this needs to be an array even if we only pass 1 id
 
 For **POST** (category):
 * name (string)
