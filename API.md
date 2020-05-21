@@ -91,7 +91,7 @@ For both POST and PUT:
 * team (array of objects: Users)
 * company (id, string)
 * tags (array of string-objects, ***optional***)
-* * one parameter inside of the tags array: name (string)
+    * one parameter inside of the tags array: name (string)
 * startDate (date, string)
 * endDate (date, string)
 
@@ -134,7 +134,7 @@ For both POST and PUT:
 * assignees (array of objects: Users)
 * status (string)
 * tags (array of string-objects, ***optional***)
-* * one parameter inside of the tags array: name (string)
+    * one parameter inside of the tags array: name (string)
 * startDate (date, string)
 * endDate (date, string)
 
