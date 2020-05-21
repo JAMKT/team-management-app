@@ -47,6 +47,8 @@ For **POST** (question):
 * company (id, string)
 * question (string)
 * answer (string)
+* categories (array of objects)
+    * one parameter inside of the categories array: id (id, string)
 
 For **PUT** (question):
 * question (string)
