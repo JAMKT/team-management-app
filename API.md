@@ -67,13 +67,24 @@ For **PUT**:
 * responsibilities (array of objects: Responsibilities, ***optional***)
 
 
-## Onboarding (COMING SOON)
+## Onboarding
 ### Routes
 ```
-
+GET:    /api/onboarding/
+GET:    /api/onboarding/:id
+POST:   /api/onboarding/
+PUT:    /api/onboarding/:id
+DELETE: /api/onboarding/delete/:id
 ```
 ### Fields
+For **POST**:
+* company (id, string)
+* description (string, ***optional***)
+* editors (array of objects: Users)
 
+For **PUT**:
+* description (string, ***optional***)
+* editors (array of objects: Users)
 
 
 ## Projects
