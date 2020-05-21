@@ -3,6 +3,16 @@
 
 ***2: In URLs, words that start with `:` are variables.***
 
+## Table of contents
+* [Companies](https://github.com/JAMKT/team-management-app/blob/master/API.md#companies)
+* [Faqs](https://github.com/JAMKT/team-management-app/blob/master/API.md#faqs)
+* [Jobs](https://github.com/JAMKT/team-management-app/blob/master/API.md#jobs)
+* [Onboarding](https://github.com/JAMKT/team-management-app/blob/master/API.md#onboarding)
+* [Projects](https://github.com/JAMKT/team-management-app/blob/master/API.md#projects)
+* [Responsibilities](https://github.com/JAMKT/team-management-app/blob/master/API.md#responsibilities)
+* [Tasks](https://github.com/JAMKT/team-management-app/blob/master/API.md#tasks)
+* [Users](https://github.com/JAMKT/team-management-app/blob/master/API.md#users)
+
 ## Companies
 ### Routes
 ```
