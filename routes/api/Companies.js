@@ -105,14 +105,14 @@ router.get('/delete/:id', async (req, res) => {
     await Project.find({ company: company_id }, (err, project) => {
         project.forEach((foundProject) => {
             foundProject.tasks.forEach((taskToDelete) => {
-                Task.findByIdAndDelete({ _id: taskToDelete._id }, err => {
+                Task.findByIdAndRemove({ _id: taskToDelete._id }, err => {
                     if(err){
                         res.send(err);
                     }
                 });
             });
             console.log("Tasks of " + foundProject._id + " deleted");
-        })
+        });
     });
 
     await Project.deleteMany({ company: company_id }, err => {
@@ -121,7 +121,7 @@ router.get('/delete/:id', async (req, res) => {
 
     await Company.findById(company_id, (err, foundCompany) => {
         err ? res.send(err) : foundCompany.members.forEach((memberToDelete) => {
-            User.findByIdAndDelete({ _id: memberToDelete._id }, err => {
+            User.findByIdAndRemove({ _id: memberToDelete._id }, err => {
                 if (err) {
                     res.send(err);
                 }
@@ -131,7 +131,7 @@ router.get('/delete/:id', async (req, res) => {
         console.log("Users of " + company_id + " deleted");
     });
 
-    await Company.findByIdAndDelete({ company: company_id }, err => {
+    await Company.findByIdAndRemove({ company: company_id }, err => {
         err ? res.send(err) : res.send("Company deleted succesfully");
     });
 });
