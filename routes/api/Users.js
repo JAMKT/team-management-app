@@ -174,7 +174,7 @@ router.get('/delete/:id', async (req, res) => {
     const user = await User.findById(req.params.id);
 
     if (user.isOwner) {
-        await Company.find({owner: user._id}, (err, foundCompany) => {
+        await Company.find({owner: user._id}, async (err, foundCompany) => {
             err ? res.send(err) : console.log("Company " + foundCompany.name + "found");
 
             const company_id = foundCompany._id;
