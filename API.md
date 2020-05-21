@@ -29,12 +29,16 @@ GET:    /api/faqs/:id
 GET:    /api/faqs/categories/:id
 POST:   /api/faqs/
 POST:   /api/faqs/categories
-PUT:    /api/faqs/:id
+PUT:    /api/faqs/:category_id/:id
 DELETE: /api/faqs/delete/:id
 ```
 ### Fields
-For both **POST** and **PUT** (question): 
+For **POST** (question): 
 * company (id, string)
+* question (string)
+* answer (string)
+
+For **PUT** (question):
 * question (string)
 * answer (string)
 

@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
 
         await newQuestion.save();
 
-        await Category.findByIdAndUpdate({ _id: data.category }, {
+        await Category.findByIdAndUpdate({ _id: "5ec65408da0e490d5c1276c0" }, {
             $addToSet: {
                 questions: {
                     faq: newQuestion._id,
@@ -64,8 +64,6 @@ router.post('/', async (req, res) => {
         }, { new: true })
         .then(response => { res.send(response); })
         .catch(err => { res.send('Could not update this category.'); });
-
-        res.send(newQuestion);
     } catch(err) {
         res.send('Could not create this question.')
     }
@@ -92,36 +90,36 @@ router.post('/categories', (req, res) => {
 
 // POST
 // Update a question
-router.post('/:id', (req, res) => {
+router.post('/:category_id/:id', async (req, res) => {
     const data = req.body;
 
-    // Update actual question and update question in its category as well
-    Faq.findByIdAndUpdate({ _id: req.params.id }, {
-        $set: {
-            company: data.company, // Check how to get the company
-            author: {
-                user: req.user._id,
-                username: req.user.username
-            },
-            question: data.question,
-            answer: data.answer
-        }
-    }, { new: true })
-    .then(response => {
-        Category.findById(data.category, (err, category) => {
+    try {
+        // Update actual question
+        await Faq.findByIdAndUpdate({ _id: req.params.id }, {
+            $set: {
+                question: data.question,
+                answer: data.answer
+            }
+        }, { new: true })
+        .then(response => { console.log(response); })
+        .catch(err => { res.send('Could not update this question.'); });
+
+        // Update question in its category as well
+        await Category.findById(req.params.category_id, (err, category) => {
             const questionsArray = category.questions;
 
             questionsArray.forEach(question => {
-                if (question.faq === req.params.id) {
+                if (question._id === req.params.id) {
                     question.question = data.question;
                 }
             });
 
             category.save();
-            res.send(response);
+            res.send(category);
         });
-    })
-    .catch(err => { res.send('Could not update this question.'); });
+    } catch(err) {
+        res.send(err);
+    }
 });
 
 
