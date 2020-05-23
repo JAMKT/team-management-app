@@ -1,15 +1,14 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { VALIDATOR_MINLENGTH, VALIDATOR_EMAIL } from '../util/validator';
-import { useForm } from '../hooks/formHook';
-import { AuthContext } from '../context/authContext';
+import { VALIDATOR_MINLENGTH, VALIDATOR_EMAIL } from '../components/util/validator';
+import { useForm } from '../components/hooks/formHook';
+import { AuthContext } from '../components/context/authContext';
 
-export default function LogimLogin() {
+const Login = (props) => {
     const auth = useContext(AuthContext);
     const [error, setError] = useState(null);
     const [formState, inputHandler] = useForm(
-        //set inital input state + form validity state
         {
             email: {
                 value: '',
@@ -38,6 +37,7 @@ export default function LogimLogin() {
             email: formState.inputs.email.value,
             password: formState.inputs.password.value
         }
+
         const config = {
             withCredentials: true,
             headers: {
@@ -50,22 +50,23 @@ export default function LogimLogin() {
                 if (foundUser.data.success === false) {
                     setError(true);
                 }
+
                 if (foundUser.data.foundUser) {
                     auth.login(foundUser.data.foundUser);
-                    props.history.push('/profile')
+                    props.history.push('/profile');
                 } else {
-                    props.history.push('/login')
+                    props.history.push('/login');
                 }
             })
             .catch(err => console.log(err));
     }
 
-    let errorMessage =
-        error === true ? (
-            <Popup clearPopupState={() => clearPopuState()}>
-                <h3>Login failed</h3>
-                <p>Incorrect email or password.</p>
-            </Popup>) : null;
+    // let errorMessage =
+    //     error === true ? (
+    //         <Popup clearPopupState={() => clearPopuState()}>
+    //             <h3>Login failed</h3>
+    //             <p>Incorrect email or password.</p>
+    //         </Popup>) : null;
 
     // Clear Popup state function for when the Popup is closed
     const clearPopuState = () => {
@@ -75,7 +76,6 @@ export default function LogimLogin() {
     return (
         <div className="screen-size" id="login">
             <div className="middle-floating-card">
-
                 <div className="relative-inner-wrapper col">
                     <div className="half-out-logo justify-center">
                         <img src="https://via.placeholder.com/84" />
@@ -115,7 +115,7 @@ export default function LogimLogin() {
                             <button className="full-width-btn primary-bg-color"
                                 disabledBtn={!formState.isValid}>Sign In</button>
                         </form>
-                        {errorMessage}
+                        {/* {errorMessage} */}
                     </div>
 
                     <div className="row">
@@ -126,8 +126,9 @@ export default function LogimLogin() {
                         <Link>Create an company account here</Link>
                     </div>
                 </div>
-
             </div>
         </div>
     )
 }
+
+export default Login;
