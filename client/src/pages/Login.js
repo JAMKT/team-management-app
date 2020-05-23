@@ -94,6 +94,7 @@ const Login = (props) => {
                                 id="email"
                                 type="email"
                                 label="Email"
+                                placeholder="Email"
                                 errorText="Please enter a valid email."
                                 validator={[VALIDATOR_EMAIL()]}
                                 onInput={inputHandler}
@@ -105,6 +106,7 @@ const Login = (props) => {
                                 id="password"
                                 type="password"
                                 label="Password"
+                                placeholder="Password"
                                 errorText="Password must be at least 6 characters."
                                 validator={[VALIDATOR_MINLENGTH(6)]}
                                 onInput={inputHandler}
