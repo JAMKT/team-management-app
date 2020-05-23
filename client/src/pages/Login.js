@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-export default function LogimLogin() {
+export default function Login() {
     return (
         <div className="screen-size" id="login">
             <div className="middle-floating-card">
@@ -20,7 +20,9 @@ export default function LogimLogin() {
                     
                     <div className="row form-wrapper">
                         <form className="col">
+                            <label for="email">E-mail</label>
                             <input className="text-input-field" placeholder="E-mail" type="text" />
+                            <label for="password">Password</label>
                             <input className="text-input-field" placeholder="Password" type="text" />
                             <button className="full-width-btn primary-bg-color">Sign In</button>
                         </form>
