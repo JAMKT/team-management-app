@@ -186,7 +186,8 @@ body {
   outline: none;
   border-radius: 8px;
   font-weight: 700;
-  color: #fff; }
+  color: #fff;
+  cursor: pointer; }
 
 /* Utilities */
 .relative-inner-wrapper {
