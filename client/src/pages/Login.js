@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { VALIDATOR_MINLENGTH, VALIDATOR_EMAIL } from '../components/util/validator';
+import Input from '../Common/FormElements/Input';
 import { useForm } from '../components/hooks/formHook';
 import { AuthContext } from '../components/context/authContext';
 
