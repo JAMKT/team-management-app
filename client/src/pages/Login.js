@@ -27,7 +27,7 @@ export default function LogimLogin() {
 
     useEffect(() => {
         if (auth.loggedIn === true) {
-            props.history.push('/all');
+            props.history.push('/profile');
         }
     });
 
