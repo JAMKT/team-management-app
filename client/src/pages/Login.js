@@ -2,7 +2,10 @@ import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { VALIDATOR_MINLENGTH, VALIDATOR_EMAIL } from '../components/util/validator';
-import Input from '../Common/FormElements/Input';
+
+import Input from '../components/Common/FormElements/Input';
+import Button from '../components/Common/Button/Button';
+
 import { useForm } from '../components/hooks/formHook';
 import { AuthContext } from '../components/context/authContext';
 
@@ -70,9 +73,9 @@ const Login = (props) => {
     //         </Popup>) : null;
 
     // Clear Popup state function for when the Popup is closed
-    const clearPopuState = () => {
-        setError(null);
-    }
+    // const clearPopuState = () => {
+    //     setError(null);
+    // }
 
     return (
         <div className="screen-size" id="login">
@@ -91,7 +94,7 @@ const Login = (props) => {
 
                     <div className="row form-wrapper">
                         <form className="col" onSubmit={onSubmitHandler}>
-                            <input className="text-input-field"
+                            <Input className="text-input-field"
                                 id="email"
                                 type="email"
                                 label="Email"
@@ -102,8 +105,10 @@ const Login = (props) => {
                                 inputStyle="hide-text-input-field"
                                 inputContainerStyle="margin-s input-field"
                                 labelStyle="input-field-label"
-                                errorStyle="error-border" />
-                            <input className="text-input-field"
+                                errorStyle="error-border"
+                            />
+
+                            <Input className="text-input-field"
                                 id="password"
                                 type="password"
                                 label="Password"
@@ -114,9 +119,10 @@ const Login = (props) => {
                                 inputStyle="hide-text-input-field"
                                 inputContainerStyle="margin-s input-field"
                                 labelStyle="input-field-label"
-                                errorStyle="error-border" />
-                            <button className="full-width-btn primary-bg-color"
-                                disabledBtn={!formState.isValid}>Sign In</button>
+                                errorStyle="error-border" 
+                            />
+
+                            <Button className="full-width-btn primary-bg-color" disabledBtn={!formState.isValid}>Sign In</Button>
                         </form>
                         {/* {errorMessage} */}
                     </div>
