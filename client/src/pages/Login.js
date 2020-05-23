@@ -94,7 +94,7 @@ const Login = (props) => {
 
                     <div className="row form-wrapper">
                         <form className="col" onSubmit={onSubmitHandler}>
-                            <Input className="text-input-field"
+                            <Input
                                 id="email"
                                 type="email"
                                 label="Email"
@@ -102,13 +102,10 @@ const Login = (props) => {
                                 errorText="Please enter a valid email."
                                 validator={[VALIDATOR_EMAIL()]}
                                 onInput={inputHandler}
-                                inputStyle="hide-text-input-field"
-                                inputContainerStyle="margin-s input-field"
-                                labelStyle="input-field-label"
-                                errorStyle="error-border"
+                                inputStyle="text-input-field"
                             />
 
-                            <Input className="text-input-field"
+                            <Input
                                 id="password"
                                 type="password"
                                 label="Password"
@@ -116,13 +113,12 @@ const Login = (props) => {
                                 errorText="Password must be at least 6 characters."
                                 validator={[VALIDATOR_MINLENGTH(6)]}
                                 onInput={inputHandler}
-                                inputStyle="hide-text-input-field"
-                                inputContainerStyle="margin-s input-field"
-                                labelStyle="input-field-label"
-                                errorStyle="error-border" 
+                                inputStyle="text-input-field"
                             />
 
-                            <Button className="full-width-btn primary-bg-color" disabledBtn={!formState.isValid}>Sign In</Button>
+                            <Button type="submit" 
+                                btnStyle="full-width-btn primary-bg-color"
+                                disabledBtn={!formState.isValid}>Sign In</Button>
                         </form>
                         {/* {errorMessage} */}
                     </div>
