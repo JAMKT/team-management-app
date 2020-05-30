@@ -1,24 +1,42 @@
-<<<<<<< HEAD
-import React from 'react'
-=======
-import React, { useState, useCallback,  useEffect } from 'react';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
 import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
 import axios from 'axios';
 
->>>>>>> aabda36dd6d79247c5a2ae4ab3ea5b7ee0df1b9b
+import { AuthContext } from '../components/context/authContext';
 import SideNav from '../components/Common/SideNav/SideNav';
 import TopNav from '../components/Common/TopNav/TopNav';
 import CommentSection from '../components/Common/CommentSection/CommentSection';
 import LiveFeed from '../components/Common/LiveFeed/LiveFeed';
 import ProfileInfo from '../components/Profile/ProfileInfo';
 
-export default function Profile() {
+export default function Profile(props) {
+    const auth = useContext(AuthContext);
+    const [userInfo, setUserInfo] = useState(null);
+
+    useEffect(() => {
+        if (auth.currUser === false) {
+            props.history.push('/login')
+        }
+        else if(userInfo == null ){
+            getUserInfo();
+        }
+    });
+
+    const getUserInfo = () => {
+        axios.get('/api/users/current-user')
+        .then(user => {
+            setUserInfo(user.data);
+        })
+        .catch(err => console.log(err));
+    };
+
     return (
         <div id="profile">
             <div className="container">
                 <div className="row">
 
-                    <ProfileInfo></ProfileInfo>
+                    <ProfileInfo user={userInfo}
+                    ></ProfileInfo>
 
                     <div className="col card gutter-middle">
                         <div className="row justify-space-between align-items-center bottom-border">
