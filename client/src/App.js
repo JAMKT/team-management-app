@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Register from './pages/Register';
 import OnboardingDocumentation from './pages/OnboardingDocumentation';
 
 import { AuthContext } from './components/context/authContext';
@@ -72,19 +73,11 @@ const App = () => {
     <div className="App">
       <AuthContext.Provider value={{loggedIn: loggedIn, login: login, logout: logout, currUser: currUser}}>
         <BrowserRouter>
-          
           <Switch>
             <Route path="/login" component={ Login } />
             <PrivateRoute path="/profile" component={ Profile } />
             <PrivateRoute path="/onboarding-documentation" component={ OnboardingDocumentation } />
           </Switch>
-
-          <div className="container">
-            <Link to="/login">Login</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/onboarding-documentation">Onboarding Documentation</Link>
-          </div>
-          
         </BrowserRouter>
       </AuthContext.Provider>
     </div>
