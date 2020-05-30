@@ -25,6 +25,9 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    location: String,
+    workHours: String,
+    phoneNumber: String,
     //All the users by default will have a employee account
     isOwner: {
         type: Boolean,

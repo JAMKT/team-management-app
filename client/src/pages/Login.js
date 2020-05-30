@@ -93,6 +93,7 @@ const Login = (props) => {
                     </div>
 
                     <div className="row form-wrapper">
+
                         <form className="col" onSubmit={onSubmitHandler}>
                             <Input
                                 id="email"
