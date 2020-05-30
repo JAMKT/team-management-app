@@ -173,15 +173,12 @@ body{
 /* Login pages */
 
 .middle-floating-card{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
+    margin: 120px auto;
     max-width: 480px;
     background-color: $card-color;
     border-radius: 10px;
     width: 100%;
-    margin: 0;
 }
 .relative-inner-wrapper{
     padding: 24px;
@@ -250,8 +247,8 @@ label{
 .screen-size{
     background-color: $bg-color;
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 .center-text{
     text-align: center;
