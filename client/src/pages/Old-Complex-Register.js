@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
 export default function OldComplexRegister() {
-
+/*
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [jobTitle, setJobTitle] = useState(null);
@@ -43,6 +43,7 @@ export default function OldComplexRegister() {
                     </div>
                 </div>)
     }
+    */
     //Personal - Email, password, Job Title/Role, Work Hours (Part-time, Full-time) Opt: Nickname, Location/Timezone
     //Company - Company-Name, Office Location/Timezone, Regular Work hours
     //Invitation step

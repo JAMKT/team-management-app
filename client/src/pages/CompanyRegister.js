@@ -60,6 +60,7 @@ export default function CompanyRegister(props) {
 
     return (
         <div className="screen-size" id="login">
+            <h1>Under development</h1>
             <div className="middle-floating-card">
                 <div className="relative-inner-wrapper col">
                     <div className="half-out-logo justify-center">
