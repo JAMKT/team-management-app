@@ -15,9 +15,8 @@ const ProfileInfo = (props) => {
         if(userInfo == null ){
             setUserInfo(props.user);
         }
-    })
-    
-
+    });
+  
     return (
         <div id="profile-info" className="col card col-fixed-372">
             <div className="row justify-end">
