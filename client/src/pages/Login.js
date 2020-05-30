@@ -99,10 +99,13 @@ const Login = (props) => {
                                 type="email"
                                 label="Email"
                                 placeholder="Email"
-                                errorText="Please enter a valid email."
+                                errorText="Please enter an email in format: 
+                                example@example.com"
                                 validator={[VALIDATOR_EMAIL()]}
                                 onInput={inputHandler}
                                 inputStyle="text-input-field"
+                                errorStyle="error-border"
+                                inputContainerStyle="input-container"
                             />
 
                             <Input
@@ -114,6 +117,8 @@ const Login = (props) => {
                                 validator={[VALIDATOR_MINLENGTH(6)]}
                                 onInput={inputHandler}
                                 inputStyle="text-input-field"
+                                errorStyle="error-border"
+                                inputContainerStyle="input-container"
                             />
 
                             <Button type="submit" 
