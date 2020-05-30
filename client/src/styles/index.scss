@@ -14,6 +14,7 @@ body{
 /* GRID STYLING */
 
 .container{
+    
     margin-left: 72px;
     margin-top: 72px;
     padding: 36px;
@@ -21,6 +22,7 @@ body{
     flex-flow: column wrap;
 }
 .container-simple{
+    box-sizing: border-box;
     padding: 36px;
     display: flex;
     flex-flow: column wrap;
@@ -314,7 +316,9 @@ body{
     font-size: 12px;
     padding: 4px 0;
 }
-
+.no-wrap{
+    flex-wrap: nowrap !important;
+}
 /* Profile */
 
 .col-fixed-300 {

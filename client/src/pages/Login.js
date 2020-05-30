@@ -23,7 +23,7 @@ export default function Login() {
                             <label for="email">E-mail</label>
                             <input className="text-input-field" placeholder="E-mail" type="text" />
                             <label for="password">Password</label>
-                            <input className="text-input-field" placeholder="Password" type="text" />
+                            <input className="text-input-field" placeholder="Password" type="password" />
                             <button className="full-width-btn primary-bg-color">Sign In</button>
                         </form>
                     </div>
