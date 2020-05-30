@@ -9,30 +9,32 @@ import Button from '../components/Common/Button/Button';
 import { useForm } from '../components/hooks/formHook';
 import { AuthContext } from '../components/context/authContext';
 
-const Login = (props) => {
+export default function CompanyRegister(props) {
+
     const auth = useContext(AuthContext);
     const [error, setError] = useState(null);
-    const [formState, inputHandler] = useForm(
-        {
-            email: {
-                value: '',
-                isValid: false
-            },
-            password: {
-                value: '',
-                isValid: false
-            }
-        },
-        {
-            isValid: false
-        }
-    );
+    const [formState, inputHandler] = useForm({
+        companyName: {
 
-    useEffect(() => {
-        if (auth.loggedIn === true) {
-            props.history.push('/profile');
+        },
+        description:{
+            
+        },
+        owner: {
+            value: '',
+            isValid: false
+        },
+        address: {
+            value: '',
+            isValid: false
+        },
+        workHours: {
+
         }
+    }, {
+        isValid: false
     });
+
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
@@ -49,43 +51,23 @@ const Login = (props) => {
             },
         };
 
-        axios.post('/api/users/login', data, config)
+        axios.post('/api/users/register', data, config)
             .then((foundUser) => {
-                if (foundUser.data.success === false) {
-                    setError(true);
-                }
-
-                if (foundUser.data.foundUser) {
-                    auth.login(foundUser.data.foundUser);
-                    props.history.push('/profile');
-                } else {
-                    props.history.push('/login');
-                }
+                
             })
             .catch(err => console.log(err));
     }
 
-    // let errorMessage =
-    //     error === true ? (
-    //         <Popup clearPopupState={() => clearPopuState()}>
-    //             <h3>Login failed</h3>
-    //             <p>Incorrect email or password.</p>
-    //         </Popup>) : null;
-
-    // Clear Popup state function for when the Popup is closed
-    // const clearPopuState = () => {
-    //     setError(null);
-    // }
-
     return (
         <div className="screen-size" id="login">
+            <h1>Under development</h1>
             <div className="middle-floating-card">
                 <div className="relative-inner-wrapper col">
                     <div className="half-out-logo justify-center">
                         <img src="https://via.placeholder.com/84" />
                     </div>
                     <div className="row justify-center">
-                        <h3 className="center-text">Title of App</h3>
+                        <h3 className="center-text">Welcome to Title of App</h3>
                     </div>
 
                     <div className="row justify-center">
@@ -100,13 +82,10 @@ const Login = (props) => {
                                 type="email"
                                 label="Email"
                                 placeholder="Email"
-                                errorText="Please enter an email in format: 
-                                example@example.com"
+                                errorText="Please enter a valid email."
                                 validator={[VALIDATOR_EMAIL()]}
                                 onInput={inputHandler}
                                 inputStyle="text-input-field"
-                                errorStyle="error-border"
-                                inputContainerStyle="input-container"
                             />
 
                             <Input
@@ -118,8 +97,6 @@ const Login = (props) => {
                                 validator={[VALIDATOR_MINLENGTH(6)]}
                                 onInput={inputHandler}
                                 inputStyle="text-input-field"
-                                errorStyle="error-border"
-                                inputContainerStyle="input-container"
                             />
 
                             <Button type="submit" 
@@ -141,5 +118,3 @@ const Login = (props) => {
         </div>
     )
 }
-
-export default Login;

@@ -7,6 +7,7 @@
     font-family: 'Raleway',
     sans-serif;
     box-sizing: border-box;
+    color: $primary-font-color;
 }
 body{
     background-color: $bg-color;
@@ -217,15 +218,12 @@ body{
 /* Login pages */
 
 .middle-floating-card{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: block;
+    margin: 120px auto;
     max-width: 480px;
     background-color: $card-color;
     border-radius: 10px;
     width: 100%;
-    margin: 0;
 }
 .relative-inner-wrapper{
     padding: 24px;
@@ -244,13 +242,21 @@ body{
 .form-wrapper{
     padding: 36px 0;
 }
+.input-container{
+    margin-bottom: 10px;
+}
 .text-input-field{
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    margin-top: 5px;
     width: 100%;
     border: none;
     background-color: $input-field-color;
     padding: 16px;
     border-radius: 8px;
+    outline: none;
+    &:focus{
+        border: 1.5px solid #586fca;
+    }
 }
 .full-width-btn{
     padding: 16px;
@@ -263,6 +269,17 @@ body{
     cursor: pointer;
 }
 
+/* Error messages */
+.error-border{
+    border: 1.5px solid $error-red;
+}
+.error-text{
+    color: $error-red;
+}
+label{
+    font-weight: bold;
+    font-size: 14px;
+}
 
 
 /* Utilities */
@@ -275,8 +292,8 @@ body{
 .screen-size{
     background-color: $bg-color;
     position: relative;
-    width: 100vw;
-    height: 100vh;
+    min-width: 100vw;
+    min-height: 100vh;
 }
 .center-text{
     text-align: center;
@@ -310,6 +327,9 @@ body{
     height: 32px;
     border-radius: 100%;
     overflow: hidden;
+}
+.top-margin-m {
+    margin-top: 24px;
 }
 .bottom-margin-s{
     margin-bottom: 12px;
