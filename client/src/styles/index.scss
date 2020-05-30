@@ -7,6 +7,7 @@
     font-family: 'Raleway',
     sans-serif;
     box-sizing: border-box;
+    color: $primary-font-color;
 }
 body{
     background-color: $bg-color;
@@ -199,13 +200,21 @@ body{
 .form-wrapper{
     padding: 36px 0;
 }
+.input-container{
+    margin-bottom: 10px;
+}
 .text-input-field{
-    margin-bottom: 12px;
+    margin-bottom: 6px;
+    margin-top: 5px;
     width: 100%;
     border: none;
     background-color: $input-field-color;
     padding: 16px;
     border-radius: 8px;
+    outline: none;
+    &:focus{
+        border: 1.5px solid #586fca;
+    }
 }
 .full-width-btn{
     padding: 16px;
@@ -218,6 +227,17 @@ body{
     cursor: pointer;
 }
 
+/* Error messages */
+.error-border{
+    border: 1.5px solid $error-red;
+}
+.error-text{
+    color: $error-red;
+}
+label{
+    font-weight: bold;
+    font-size: 14px;
+}
 
 
 /* Utilities */

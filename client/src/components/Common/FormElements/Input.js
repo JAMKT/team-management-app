@@ -49,9 +49,14 @@ const Input = props => {
 
     return(
         <React.Fragment>
-            <div  className={[props.inputContainerStyle].join(' ')}>
+            <div className={[props.inputContainerStyle].join(' ')}>
+                <label 
+                    htmlFor={props.id}
+                    className={[props.labelStyle].join(' ')}>
+                        {props.label}
+                </label>
                 <input 
-                    className={[props.inputStyle].join(' ')}
+                    className={[props.inputStyle].join(' ') + ' ' + [`${inputState.isTouch && !inputState.isValid && props.errorStyle}`]}
                     id={props.id}
                     element={props.element}
                     type={props.type}
@@ -59,8 +64,12 @@ const Input = props => {
                     onChange={onChangeHandler}
                     onBlur={onTouchHandler}
                     value={props.value}/>
+
+                    {inputState.isTouch && !inputState.isValid && <p className="error-text">{props.errorText}</p>}
             </div>
-            {inputState.isTouch && !inputState.isValid && <p className="error-text">{props.errorText}</p>}
+
+           
+            
         </React.Fragment>
     );
 }
