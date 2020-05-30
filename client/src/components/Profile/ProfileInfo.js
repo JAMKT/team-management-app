@@ -22,7 +22,9 @@ const ProfileInfo = (props) => {
             <div className="row justify-end">
                 <button className="edit-btn">Edit</button>
             </div>
+
             <UserCardVertical user={userInfo}/>
+            
             <div className="row">
                 <h3>Who am I?</h3>
             </div>
