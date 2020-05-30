@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/authContext';
 
 export default function SideNav() {
+    var auth = useContext(AuthContext);
+
     return (
         <nav id="side-nav-bar">
                 <div className="side-nav-bar-positioning-wrapper">
@@ -52,7 +55,7 @@ export default function SideNav() {
                             </Link>
                         </li>
                     </ul>
-                    <button id="settings-btn">
+                    <button id="settings-btn" onClick={() => auth.logout()}>
                     <img src={process.env.PUBLIC_URL + '/icons/logout.svg'} alt=""/>
                     </button>
                 </div>
