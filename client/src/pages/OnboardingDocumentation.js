@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState, useCallback, useContext, useEffect } from 'react';
+import axios from 'axios';
+
 import SideNav from '../components/Common/SideNav/SideNav';
 import TopNav from '../components/Common/TopNav/TopNav';
 import SearchField from '../components/Common/SearchFIeld/SearchField';
@@ -7,8 +9,29 @@ import UserCardHorizontal from '../components/Common/UserCard/UserCardHorizontal
 import { Link } from 'react-router-dom';
 import LinkList from '../components/Common/LinkList/LinkList';
 import CommentSection from '../components/Common/CommentSection/CommentSection'
+import { AuthContext } from '../components/context/authContext';
 
-export default function OnboardingDocumentation() {
+export default function OnboardingDocumentation(props) {
+    const auth = useContext(AuthContext);
+    const [userInfo, setUserInfo] = useState(null);
+
+    useEffect(() => {
+        if (auth.currUser === false) {
+            props.history.push('/login')
+        }
+        else if(userInfo == null ){
+            getUserInfo();
+        }
+    });
+
+    const getUserInfo = () => {
+        axios.get('/api/users/current-user')
+        .then(user => {
+            setUserInfo(user.data);
+        })
+        .catch(err => console.log(err));
+    };
+
     return (
         <div className="container">
             <div className="row">

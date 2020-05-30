@@ -74,7 +74,6 @@ const App = () => {
     <div className="App">
       <AuthContext.Provider value={{loggedIn: loggedIn, login: login, logout: logout, currUser: currUser}}>
         <BrowserRouter>
-          
           <Switch>
             <Route path="/login" component={ Login } />
             <PrivateRoute path="/profile" component={ Profile } />
@@ -83,13 +82,14 @@ const App = () => {
             <Route path="/user-register" component={ UserRegister }/>
           </Switch>
 
+
           <div className="container">
             <Link to="/login">Login</Link>
             <Link to ="/register">Register</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/onboarding-documentation">Onboarding Documentation</Link>
           </div>
-          
+
         </BrowserRouter>
       </AuthContext.Provider>
     </div>
