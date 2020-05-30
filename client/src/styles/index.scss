@@ -117,7 +117,7 @@ body{
             }
 
             span {
-                color: #fff;
+                color: $card-color;
                 font-weight: bold;
                 text-decoration: none;
                 margin-left: 10px;
@@ -147,7 +147,7 @@ body{
     }
 
     span {
-        color: #fff;
+        color: $card-color;
         font-weight: bold;
         text-decoration: none;
         margin-left: 10px;
@@ -167,12 +167,12 @@ body{
     cursor: pointer;
     
     img {
-        color: #fff;
+        color: $card-color;
     }
 }
 .burger-line{
     border-radius: 2px;
-    background-color: #fff;
+    background-color: $card-color;
     display: block;
     width: 32px;
     height: 4px;
@@ -201,17 +201,20 @@ body{
 }
 #user-profile-nav{
     margin-right: 24px;
-    color: #fff;
+    color: $card-color;
     display: flex;
     align-items: center;
-}
-#user-profile-nav span{
-    font-size: 16px;
-    font-weight: 700;
-}
-#user-profile-nav img{
-    border-radius: 50%;
-    margin-left: 12px;
+
+    span{
+        font-size: 16px;
+        font-weight: 700;
+        color:$card-color;
+    }
+
+    img{
+        border-radius: 50%;
+        margin-left: 12px;
+    }
 }
 
 
@@ -265,7 +268,7 @@ body{
     outline: none;
     border-radius: 8px;
     font-weight: 700;
-    color: #fff;
+    color: $card-color;
     cursor: pointer;
 }
 
@@ -364,7 +367,7 @@ label{
 }
 .progress-btn{
     padding: 6px 12px;
-    border: 1px solid #fff;
+    border: 1px solid $card-color;
     
     outline: 1px solid $bg-color;
     background-color: $primary-bg-color;
@@ -435,7 +438,7 @@ label{
     cursor: pointer;
 }
 .tab-active{
-    color: #fff; 
+    color: $card-color; 
     background-color: $active-tab-bg;
 }
 .tab-inactive{
@@ -452,7 +455,7 @@ label{
     font-size: 10px;
     font-weight: 700;
     text-align: center;
-    color: #fff;
+    color: $card-color;
     max-width: 210px;
 }
 
@@ -479,7 +482,7 @@ label{
 .comment-input-field-wrapper{
     display: flex;
     border-radius: 50px;
-    background-color: #fff;
+    background-color: $card-color;
 }
 .comment-input-field-wrapper img{
     padding: 8px 16px;
@@ -529,7 +532,7 @@ label{
     padding: 6px 0;
     background-color: $primary-bg-color;
     width: 100%;
-    color: #fff;
+    color: $card-color;
     max-width: 210px;
     margin-bottom: 6px;
 }
@@ -575,7 +578,7 @@ label{
     width: 100%;
 }
 .field-selector-list li{
-    background-color: #fff;
+    background-color: $card-color;
     padding: 12px;
     width: 100%;
     margin-bottom: 6px;
