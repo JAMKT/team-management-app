@@ -13,7 +13,14 @@ const faqSchema = new mongoose.Schema({
         },
         username: String
     },
-    content: String,
+    question: {
+        type: String,
+        required: true
+    },
+    answer: {
+        type: String,
+        required: true
+    },
     //Automatically gets the date of creation of the faq
     created: {
         type: Date,

@@ -3,9 +3,16 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 
-//User Model
-const User = require('../../models/User');
+// Require Models
+const Category = require('../../models/Category');
 const Company = require('../../models/Company');
+const Faq = require('../../models/Faq');
+const Job = require('../../models/Job');
+const Onboarding = require('../../models/Onboarding');
+const Project = require('../../models/Project');
+const Responsibility = require('../../models/Responsibility');
+const Task = require('../../models/Task');
+const User = require('../../models/User');
 
 // GET
 // Get users
@@ -123,6 +130,109 @@ router.post('/login', (req, res, next) => {
 // Logout
 router.get('/logout', (req, res) => {
     req.logout();
+});
+
+// POST
+// Update a user
+router.post('/:id', async (req, res) => {
+    const data = req.body;
+    let userPassword;
+
+    try {
+        // Check if the password provided is the same as the user's password or not
+        await bcrypt.compare(data.password, req.user.password, async (err, password) => {
+            if (password) {
+                userPassword = password;
+            } else {
+                const salt = await bcrypt.genSalt(10);
+                const hash = await bcrypt.hash(data.password, salt);
+    
+                userPassword = hash;
+            }
+        });
+
+        await User.findOneAndUpdate({ _id: req.params.id }, {
+            $set: {
+                firstName: data.firstName,
+                lastName: data.lastName,
+                username: data.username,
+                email: data.email,
+                password: userPassword,
+                description: (data.description) ? data.description : null
+            }
+        }, { new: true })
+        .then(response => { res.send(response); })
+        .catch(err => { res.send('Could not update this user.'); });
+    } catch(err) {
+        res.send(err);
+    }
+});
+
+// DELETE 
+// Delete a user
+router.get('/delete/:id', async (req, res) => {
+    const user = await User.findById(req.params.id);
+
+    if (user.isOwner) {
+        await Company.find({owner: user._id}, async (err, foundCompany) => {
+            err ? res.send(err) : console.log("Company " + foundCompany.name + "found");
+
+            const company_id = foundCompany._id;
+
+            await Job.deleteMany({ company: company_id }, err => {
+                err ? res.send(err) : Responsibility.deleteMany({ company: company_id }, err => {
+                    err ? res.send(err) : Onboarding.deleteMany({ company: company_id }, err =>{
+                        err ? res.send(err) : console.log("Onboarding of " + company_id + " deleted");
+                    })
+                });
+            });
+        
+            await Faq.deleteMany({ company: company_id }, err => {
+                err ? res.send(err) : console.log("Faq of " + company_id + " deleted");
+            });
+        
+            await Category.deleteMany({ company: company_id }, err => {
+                err ? res.send(err) : console.log("Categories of " + company_id + " deleted");
+            });
+        
+            await Project.find({ company: company_id }, (err, project) => {
+                project.forEach((foundProject) => {
+                    foundProject.tasks.forEach((taskToDelete) => {
+                        Task.findByIdAndRemove({ _id: taskToDelete._id }, err => {
+                            if(err){
+                                res.send(err);
+                            }
+                        });
+                    });
+                    console.log("Tasks of " + foundProject._id + " deleted");
+                });
+            });
+        
+            await Project.deleteMany({ company: company_id }, err => {
+                err ? res.send(err) : console.log("Projects of" + company_id + " deleted");
+            });
+        
+            await Company.findById(company_id, (err, foundCompany) => {
+                err ? res.send(err) : foundCompany.members.forEach((memberToDelete) => {
+                    User.findByIdAndRemove({ _id: memberToDelete._id }, err => {
+                        if (err) {
+                            res.send(err);
+                        }
+                    });
+                });
+        
+                console.log("Users of " + company_id + " deleted");
+            });
+        
+            await Company.findByIdAndRemove({ _id: company_id }, err => {
+                err ? res.send(err) : res.send("Company deleted succesfully");
+            });
+        });
+    } else {
+        User.findByIdAndRemove({ _id: user._id }, (err) => {
+            err ? res.send(err) : res.send('User has been deleted!');
+        });
+    }
 });
 
 module.exports = router;
