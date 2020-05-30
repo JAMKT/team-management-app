@@ -1,9 +1,12 @@
-import React from 'react' 
+import React, { useState, useCallback,  useEffect } from 'react';
+import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
+import axios from 'axios';
+
 import SideNav from '../components/Common/SideNav/SideNav';
 import TopNav from '../components/Common/TopNav/TopNav';
-import UserCardVertical from "../components/Common/UserCard/UserCardVertical";
 import CommentSection from '../components/Common/CommentSection/CommentSection';
 import LiveFeed from '../components/Common/LiveFeed/LiveFeed';
+import ProfileInfo from '../components/Profile/ProfileInfo';
 
 export default function Profile() {
     return (
@@ -11,32 +14,7 @@ export default function Profile() {
             <div className="container">
                 <div className="row">
 
-                    <div className="col card col-fixed-372">
-                        <div className="row justify-end">
-                            <button className="edit-btn">Edit</button>
-                        </div>
-                        <UserCardVertical />
-                        <div className="row">
-                            <h3>Who am I?</h3>
-                        </div>
-                         <div className="row">
-                            <p>text here</p>
-                        </div>
-                        <div className="row">
-                            <h3>Contact information</h3>
-                        </div>
-                        <div className="row">
-                            Icon text goes here
-                        </div>
-                        <div className="row">
-                            <h3>Workload</h3>
-                        </div>
-                        <div className="row">
-                            
-                            Workload thingy here...
-                            
-                        </div>
-                    </div>
+                    <ProfileInfo></ProfileInfo>
 
                     <div className="col card gutter-middle">
                         <div className="row justify-space-between align-items-center bottom-border">
