@@ -16,12 +16,6 @@ body {
   display: flex;
   flex-flow: column wrap; }
 
-.container-simple {
-  box-sizing: border-box;
-  padding: 36px;
-  display: flex;
-  flex-flow: column wrap; }
-
 .row {
   padding-bottom: 12px;
   display: flex;
@@ -49,15 +43,6 @@ body {
 
 .align-items-start {
   align-items: flex-start; }
-
-.align-items-stretch {
-  align-items: stretch; }
-
-.align-content-space-between {
-  align-self: space-between; }
-
-.effect {
-  align-items: stretch; }
 
 /* NAVIGATION MENU */
 #side-nav-bar {
@@ -188,7 +173,7 @@ body {
   padding: 36px 0; }
 
 .input-container {
-  margin-bottom: 10px; }
+  margin-bottom: 14px; }
 
 .text-input-field {
   margin-bottom: 6px;
@@ -259,17 +244,11 @@ label {
 .width-100 {
   width: 100%; }
 
-.heigh-100 {
-  height: 100%; }
-
 .user-icon {
   width: 32px;
   height: 32px;
   border-radius: 100%;
   overflow: hidden; }
-
-.top-margin-m {
-  margin-top: 24px; }
 
 .bottom-margin-s {
   margin-bottom: 12px; }
@@ -286,49 +265,7 @@ label {
   padding: 2px 0;
   margin-bottom: 2px; }
 
-.position-relative {
-  position: relative; }
-
-.progress-bar-wrapper {
-  height: 6px;
-  border-radius: 6px;
-  width: 100%;
-  max-width: 300px;
-  background-color: #C7CFD4;
-  overflow: hidden; }
-
-.progress-bar {
-  width: 50%;
-  height: 100%;
-  background-color: #586FCA; }
-
-.progress-btn {
-  padding: 6px 12px;
-  border: 1px solid #fff;
-  outline: 1px solid #F7F8F9;
-  background-color: #586FCA; }
-
-.button-wrapper {
-  display: block;
-  border-radius: 6px;
-  overflow: hidden;
-  width: auto; }
-
-.height-50 {
-  height: 50%; }
-
-.font-12 {
-  font-size: 12px;
-  padding: 4px 0; }
-
-.no-wrap {
-  flex-wrap: nowrap !important; }
-
 /* Profile */
-.col-fixed-300 {
-  width: 300px;
-  flex: none; }
-
 .col-fixed-372 {
   width: 372px;
   flex: none; }
@@ -465,39 +402,3 @@ label {
 .pill-tab-horizontal .pill-tab {
   margin-bottom: 0 !important;
   margin-right: 12px; }
-
-/* Register */
-.position-middle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-
-.col-number-fixed {
-  flex: none;
-  width: auto;
-  max-width: 84px;
-  font-size: 25px; }
-
-.register-input-field {
-  outline: none;
-  border: none;
-  background: transparent;
-  max-width: 480px;
-  width: 480px;
-  font-size: 25px;
-  border-bottom: 3px solid #586FCA; }
-
-.register-label {
-  font-weight: bold;
-  font-size: 25px; }
-
-.field-selector-list {
-  width: 100%; }
-
-.field-selector-list li {
-  background-color: #fff;
-  padding: 12px;
-  width: 100%;
-  margin-bottom: 6px;
-  border-radius: 4px; }
