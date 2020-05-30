@@ -9,7 +9,7 @@ import Button from '../components/Common/Button/Button';
 import { useForm } from '../components/hooks/formHook';
 import { AuthContext } from '../components/context/authContext';
 
-export default function UserRegister() {
+export default function UserRegister(props) {
 
     const auth = useContext(AuthContext);
     const [error, setError] = useState(null);
@@ -61,7 +61,8 @@ export default function UserRegister() {
 
         axios.post('/api/users/register', data, config)
             .then((foundUser) => {
-                console.log(foundUser);
+                //Need some sort of verification that the user was successfully registered and or success message
+                props.history.push('/login');
             })
             .catch(err => console.log(err));
     }
