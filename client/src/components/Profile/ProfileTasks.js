@@ -7,12 +7,14 @@ import ProfileTask from './ProfileTasks/ProfileTask';
 const ProfileTasks = (props) => {
     const [mode, setMode] = useState('Public');
     const [status, setStatus] = useState('In Progress');
+    const [activeStatusTab, setActiveStatusTab] = useState('In Progress');
     
     const setPrivacyMode = (e) => {
         setMode(e.target.value);
     };
 
     const setTaskStatus = (e) => {
+        setActiveStatusTab(e.target.value);
         setStatus(e.target.value);
     };
 
@@ -30,9 +32,27 @@ const ProfileTasks = (props) => {
             </div>
             <div className="row justify-space-between align-items-center">
                 <div className="tab-wrapper">
-                    <input type="button" id="task-in-progress" value="In Progress" className="tab-btn tab-active" onClick={setTaskStatus} />
-                    <input type="button" id="task-upcoming" value="Upcoming" className="tab-btn tab-inactive" onClick={setTaskStatus} />
-                    <input type="button" id="task-completed" value="Completed" className="tab-btn tab-inactive" onClick={setTaskStatus} />
+                    <input 
+                        type="button" 
+                        id="task-in-progress" 
+                        value="In Progress" 
+                        className={`tab-btn ${activeStatusTab === 'In Progress' ? 'tab-active' : 'tab-inactive' }`} 
+                        onClick={setTaskStatus} 
+                    />
+                    <input 
+                        type="button" 
+                        id="task-upcoming" 
+                        value="Upcoming" 
+                        className={`tab-btn ${activeStatusTab === 'Upcoming' ? 'tab-active' : 'tab-inactive' }`} 
+                        onClick={setTaskStatus} 
+                    />
+                    <input 
+                        type="button" 
+                        id="task-completed" 
+                        value="Completed" 
+                        className={`tab-btn ${activeStatusTab === 'Completed' ? 'tab-active' : 'tab-inactive' }`} 
+                        onClick={setTaskStatus} 
+                    />
                 </div>
             </div>
             
