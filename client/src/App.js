@@ -4,7 +4,8 @@ import axios from 'axios';
 
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-import Register from './pages/Register';
+import CompanyRegister from './pages/CompanyRegister';
+import UserRegister from './pages/UserRegister';
 import OnboardingDocumentation from './pages/OnboardingDocumentation';
 
 import { AuthContext } from './components/context/authContext';
@@ -78,10 +79,13 @@ const App = () => {
             <Route path="/login" component={ Login } />
             <PrivateRoute path="/profile" component={ Profile } />
             <PrivateRoute path="/onboarding-documentation" component={ OnboardingDocumentation } />
+            <Route path="/company-register" component={ CompanyRegister }/>
+            <Route path="/user-register" component={ UserRegister }/>
           </Switch>
 
           <div className="container">
             <Link to="/login">Login</Link>
+            <Link to ="/register">Register</Link>
             <Link to="/profile">Profile</Link>
             <Link to="/onboarding-documentation">Onboarding Documentation</Link>
           </div>

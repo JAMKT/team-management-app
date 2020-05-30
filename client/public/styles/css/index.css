@@ -249,6 +249,9 @@ body {
   border-radius: 100%;
   overflow: hidden; }
 
+.top-margin-m {
+  margin-top: 24px; }
+
 .bottom-margin-s {
   margin-bottom: 12px; }
 

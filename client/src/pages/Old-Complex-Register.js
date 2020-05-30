@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
-export default function Register() {
+export default function OldComplexRegister() {
 
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
