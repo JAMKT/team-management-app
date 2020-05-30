@@ -14,18 +14,16 @@ export default function Profile() {
         <div id="profile">
             <div className="container">
                 <div className="row">
+                    <ProfileInfo />
 
-                    <ProfileInfo></ProfileInfo>
+                    <ProfileTasks />
 
-                    <ProfileTasks></ProfileTasks>
-
-                    <ProfileFeed></ProfileFeed>
+                    <ProfileFeed />
                 </div>
             </div>
 
             <TopNav />
             <SideNav />
-            
         </div>
-    )
+    );
 }

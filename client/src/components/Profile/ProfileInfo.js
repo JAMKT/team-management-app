@@ -5,8 +5,6 @@ import axios from 'axios';
 import UserCardVertical from "../Common/UserCard/UserCardVertical";
 
 const ProfileInfo = () => {
-    // JS code
-
     return (
         <div id="profile-info" className="col card col-fixed-372">
             <div className="row justify-end">
