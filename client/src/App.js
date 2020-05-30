@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Register from './pages/Register';
 import OnboardingDocumentation from './pages/OnboardingDocumentation';
 
 import { AuthContext } from './components/context/authContext';
