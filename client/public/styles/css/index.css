@@ -338,12 +338,18 @@ label {
 .height-50 {
   height: 50%; }
 
+.height-100 {
+  height: 100%; }
+
 .font-12 {
   font-size: 12px;
   padding: 4px 0; }
 
 .no-wrap {
   flex-wrap: nowrap !important; }
+
+.remove-padding {
+  padding: 0 !important; }
 
 /* Profile */
 .col-fixed-300 {
@@ -399,6 +405,17 @@ label {
 .tab-inactive {
   color: #000;
   background-color: #E5E9EC; }
+
+.task-inner-card-border {
+  padding: 6px 0px 6px 12px;
+  border-left: 4px solid #586FCA; }
+
+.profile-task_info_title {
+  margin-bottom: 4px; }
+
+.profile-task_info_members img {
+  padding: 8px;
+  border-radius: 40px; }
 
 /* Pill */
 .pill {
