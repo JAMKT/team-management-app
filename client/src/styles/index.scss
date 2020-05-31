@@ -75,10 +75,12 @@ body{
     top: 0;
     height: 100vh;
     background-color: $primary-bg-color;
+    transition: 0.3s ease-in-out;
 }
 
 .side-nav-bar {
-    width: 70px; 
+    width: 60px; 
+    transition: 0.3s ease-in-out;
 }
 
 .side-nav-bar-opened {
@@ -102,14 +104,36 @@ body{
         padding-left: 12px;
     
         li {
+            &:hover{
+                svg{
+                    path, rect{
+                        fill: $darkblue;
+                        transition: 0.2s ease-out;
+                    }
+                }
+                span{
+                    color: $darkblue;
+                    transition: 0.2s ease-out;
+                }
 
+            }
+            .selected {
+                svg path {
+                fill: $darkblue
+                }
+            }
+            svg{
+                display: block;
+                margin: 14px 5px;
+                cursor: pointer;
+            }
             a {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 justify-content: right;
+                text-decoration: none;
             }
-    
             img {
                 padding: 8px;
                 display: block;
@@ -129,6 +153,7 @@ body{
     }
 }
 
+
 #settings-btn{
     display: flex;
     flex-direction: row;
@@ -139,7 +164,15 @@ body{
     padding: 0;
     outline: none;
     background: transparent;
-
+    cursor: pointer;
+    &:hover{
+        span{
+            color: $darkblue;
+        }
+        svg path{
+            fill: $darkblue;
+        }
+    }
     img {
         padding: 8px;
         margin: 0;
@@ -159,24 +192,35 @@ body{
 
 .burger-btn{
     display: block;
-    width: 48px;
-    padding: 0 8px;
+    width: 36px;
+    height: 36px;
+    padding: 0px 5.5px;
     margin: 12px;
     border: none;
     background: transparent;
     cursor: pointer;
-    
+    outline: none;
+    transition: 0.2s ease-in-out;
     img {
         color: $card-color;
+    }
+    &:hover{
+        .burger-line{
+            background-color: $darkblue;
+        }
+        svg path{
+            fill: $darkblue;
+        }
+
     }
 }
 .burger-line{
     border-radius: 2px;
     background-color: $card-color;
     display: block;
-    width: 32px;
+    width: 28px;
     height: 4px;
-    margin: 8px 0;
+    margin: 6px 0;
 }
 
 #top-nav-bar{
