@@ -5,7 +5,9 @@ import SearchField from '../../../Common/SearchFIeld/SearchField';
 
 const ProfileTaskCompleted = (props) => {
     return (
-        <div className="row">
+        <div id="profile-task_completed">
+        
+            <div className="row">
                 <SearchField/>
             </div>
             <div className="row">
@@ -51,6 +53,7 @@ const ProfileTaskCompleted = (props) => {
                 </div>
             </div>
         </div>
+        
     );
 };
 
