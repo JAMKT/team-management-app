@@ -7,8 +7,10 @@ import Profile from './pages/Profile';
 import CompanyRegister from './pages/CompanyRegister';
 import UserRegister from './pages/UserRegister';
 import OnboardingDocumentation from './pages/OnboardingDocumentation';
+import RegisterSuccess from './pages/Register-Success';
 
 import { AuthContext } from './components/context/authContext';
+
 
 const App = () => {
   const [loggedIn, setLoggedIn ] = useState(null);
@@ -80,6 +82,7 @@ const App = () => {
             <PrivateRoute path="/onboarding-documentation" component={ OnboardingDocumentation } />
             <Route path="/company-register" component={ CompanyRegister }/>
             <Route path="/user-register" component={ UserRegister }/>
+            <Route path="/register-success" component={ RegisterSuccess }/>
           </Switch>
 
 

@@ -68,66 +68,111 @@ body{
 
 
 /* NAVIGATION MENU */
-#side-nav-bar{
+.side-nav-bar,
+.side-nav-bar-opened {
     position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
-    width: 72px; 
     background-color: $primary-bg-color;
 }
-.side-nav-bar-positioning-wrapper{
+
+.side-nav-bar {
+    width: 70px; 
+}
+
+.side-nav-bar-opened {
+    width: 240px; 
+}
+
+.side-nav-bar-positioning-wrapper {
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 100%;
     height: 100vh;
+    justify-content: space-between;
+
+    .side-nav-bar-list{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        list-style: none;
+        padding-left: 12px;
+    
+        li {
+
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: right;
+            }
+    
+            img {
+                padding: 8px;
+                display: block;
+                cursor: pointer;
+            }
+
+            span {
+                color: $card-color;
+                font-weight: bold;
+                text-decoration: none;
+                margin-left: 10px;
+                border: none;
+                outline: none;
+                font-size: 16px;
+            }
+        }
+    }
 }
-.side-nav-bar-list{
-    width: 72px;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translate(0%, -50%);
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-.side-nav-bar-list li{
-    margin: 12px 0;
-}
-.side-nav-bar-list li img{
-    padding: 8px;
-    display: block;
-    margin: 0 auto;
-    cursor: pointer;
-}
+
 #settings-btn{
-    background: transparent;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
     margin: 12px;
     border: none;
     padding: 0;
     outline: none;
-}
-#settings-btn img{
-    padding: 8px;
-    margin: 0;
-    margin-bottom: 8px;
-    cursor: pointer;
+    background: transparent;
+
+    img {
+        padding: 8px;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    span {
+        color: $card-color;
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 10px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+    }
 }
 
-#burger-btn{
+.burger-btn{
     display: block;
     width: 48px;
     padding: 0 8px;
     margin: 12px;
     border: none;
     background: transparent;
+    cursor: pointer;
+    
+    img {
+        color: $card-color;
+    }
 }
 .burger-line{
     border-radius: 2px;
-    background-color: #fff;
+    background-color: $card-color;
     display: block;
     width: 32px;
     height: 4px;
@@ -156,17 +201,20 @@ body{
 }
 #user-profile-nav{
     margin-right: 24px;
-    color: #fff;
+    color: $card-color;
     display: flex;
     align-items: center;
-}
-#user-profile-nav span{
-    font-size: 16px;
-    font-weight: 700;
-}
-#user-profile-nav img{
-    border-radius: 50%;
-    margin-left: 12px;
+
+    span{
+        font-size: 16px;
+        font-weight: 700;
+        color:$card-color;
+    }
+
+    img{
+        border-radius: 50%;
+        margin-left: 12px;
+    }
 }
 
 
@@ -220,7 +268,7 @@ body{
     outline: none;
     border-radius: 8px;
     font-weight: 700;
-    color: #fff;
+    color: $card-color;
     cursor: pointer;
 }
 
@@ -319,7 +367,7 @@ label{
 }
 .progress-btn{
     padding: 6px 12px;
-    border: 1px solid #fff;
+    border: 1px solid $card-color;
     
     outline: 1px solid $bg-color;
     background-color: $primary-bg-color;
@@ -387,9 +435,10 @@ label{
     padding: 8px 16px;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 .tab-active{
-    color: #fff; 
+    color: $card-color; 
     background-color: $active-tab-bg;
 }
 .tab-inactive{
@@ -406,7 +455,7 @@ label{
     font-size: 10px;
     font-weight: 700;
     text-align: center;
-    color: #fff;
+    color: $card-color;
     max-width: 210px;
 }
 
@@ -433,7 +482,7 @@ label{
 .comment-input-field-wrapper{
     display: flex;
     border-radius: 50px;
-    background-color: #fff;
+    background-color: $card-color;
 }
 .comment-input-field-wrapper img{
     padding: 8px 16px;
@@ -483,7 +532,7 @@ label{
     padding: 6px 0;
     background-color: $primary-bg-color;
     width: 100%;
-    color: #fff;
+    color: $card-color;
     max-width: 210px;
     margin-bottom: 6px;
 }
@@ -529,7 +578,7 @@ label{
     width: 100%;
 }
 .field-selector-list li{
-    background-color: #fff;
+    background-color: $card-color;
     padding: 12px;
     width: 100%;
     margin-bottom: 6px;

@@ -61,8 +61,7 @@ export default function UserRegister(props) {
 
         axios.post('/api/users/register', data, config)
             .then((foundUser) => {
-                //Need some sort of verification that the user was successfully registered and or success message
-                props.history.push('/login');
+                props.history.push('/register-success');
             })
             .catch(err => console.log(err));
     }
