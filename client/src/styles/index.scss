@@ -358,6 +358,7 @@ label{
     border-radius: 8px;
     padding: 24px;
     background-color: $card-color;
+    box-shadow: 1px 1px 4px $shadow-color;
 }
 .bottom-border{
     border-bottom: 1px solid $border-color;
