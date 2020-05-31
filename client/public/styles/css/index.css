@@ -66,10 +66,12 @@ body {
   left: 0;
   top: 0;
   height: 100vh;
-  background-color: #586FCA; }
+  background-color: #586FCA;
+  transition: 0.3s ease-in-out; }
 
 .side-nav-bar {
-  width: 70px; }
+  width: 60px;
+  transition: 0.3s ease-in-out; }
 
 .side-nav-bar-opened {
   width: 240px; }
@@ -88,11 +90,24 @@ body {
     width: 100%;
     list-style: none;
     padding-left: 12px; }
+    .side-nav-bar-positioning-wrapper .side-nav-bar-list li:hover svg path, .side-nav-bar-positioning-wrapper .side-nav-bar-list li:hover svg rect {
+      fill: #11013B;
+      transition: 0.2s ease-out; }
+    .side-nav-bar-positioning-wrapper .side-nav-bar-list li:hover span {
+      color: #11013B;
+      transition: 0.2s ease-out; }
+    .side-nav-bar-positioning-wrapper .side-nav-bar-list li .selected svg path {
+      fill: #11013B; }
+    .side-nav-bar-positioning-wrapper .side-nav-bar-list li svg {
+      display: block;
+      margin: 14px 5px;
+      cursor: pointer; }
     .side-nav-bar-positioning-wrapper .side-nav-bar-list li a {
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: right; }
+      justify-content: right;
+      text-decoration: none; }
     .side-nav-bar-positioning-wrapper .side-nav-bar-list li img {
       padding: 8px;
       display: block;
@@ -115,7 +130,12 @@ body {
   border: none;
   padding: 0;
   outline: none;
-  background: transparent; }
+  background: transparent;
+  cursor: pointer; }
+  #settings-btn:hover span {
+    color: #11013B; }
+  #settings-btn:hover svg path {
+    fill: #11013B; }
   #settings-btn img {
     padding: 8px;
     margin: 0;
@@ -131,22 +151,29 @@ body {
 
 .burger-btn {
   display: block;
-  width: 48px;
-  padding: 0 8px;
+  width: 36px;
+  height: 36px;
+  padding: 0px 5.5px;
   margin: 12px;
   border: none;
   background: transparent;
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s ease-in-out; }
   .burger-btn img {
     color: #fff; }
+  .burger-btn:hover .burger-line {
+    background-color: #11013B; }
+  .burger-btn:hover svg path {
+    fill: #11013B; }
 
 .burger-line {
   border-radius: 2px;
   background-color: #fff;
   display: block;
-  width: 32px;
+  width: 28px;
   height: 4px;
-  margin: 8px 0; }
+  margin: 6px 0; }
 
 #top-nav-bar {
   width: calc(100vw - 72px);
