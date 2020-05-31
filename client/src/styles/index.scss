@@ -431,6 +431,10 @@ label{
 .no-wrap{
     flex-wrap: nowrap !important;
 }
+.remove-padding {
+    padding: 0 !important;
+}
+
 /* Profile */
 
 .col-fixed-300 {
@@ -488,7 +492,22 @@ label{
     color: #000;
     background-color: $inactive-tab-bg ;
 }
+.task-inner-card-border {
+    padding: 6px 0px 6px 12px;
+    border-left: 4px solid $primary-bg-color;
+}
 
+.profile-task_info_title {
+    margin-bottom: 4px;
+}
+
+.profile-task_info_members {
+    img {
+        padding: 8px;
+        border-radius: 40px;
+    }
+
+}
 
 /* Pill */
 .pill{

@@ -5,37 +5,46 @@ import SearchField from '../../../Common/SearchFIeld/SearchField';
 
 const ProfileTaskCompleted = (props) => {
     return (
-        <div id="profile-task_completed">
-            <div class="row">
+        <div className="row">
                 <SearchField/>
             </div>
-            <div id="completed-tasks">
-                {/* TODO: Make component for completed tasks and remove static data */}
-                <div className="profile-task row">
-                    <div className="profile-task_info">
-                        <div className="col">
-                            <p className="profile-task_info_title">Review and modify documentation</p>
-                            <span className="profile-task_info_project">Project: Team Management App</span>
-                        </div>
-                        <div className="col">
-                            <span className="profile-task_info_deadline">May 16th</span>
-                            <div className="profile-task_info_members">
-                                <img src="#" alt="user picture"/>
+            <div className="row">
+                <div className="col" id="completed-tasks">
+                    {/* TODO: Make component for completed tasks and remove static data */}
+                    <div className="profile-task row">
+                        <div className="profile-task_info card card-secondary width-100">
+                            <div className="row task-inner-card-border">
+                                <div className="col">
+                                    <h4 className="profile-task_info_title">Review and modify documentation</h4>
+                                    <span className="profile-task_info_project">Project: Team Management App</span>
+                                </div>
+                                <div className="col">
+                                    <div className="row remove-padding justify-end align-items-center height-100">
+                                        <span className="profile-task_info_deadline">May 16th</span>
+                                        <div className="profile-task_info_members card remove-padding gutter-s-left">
+                                            <img src="https://via.placeholder.com/24" alt="user picture"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div className="profile-task row">
-                    <div className="profile-task_info">
-                        <div className="col">
-                            <p className="profile-task_info_title">Design File Uploader</p>
-                            <span className="profile-task_info_project">Project: Team Management App</span>
-                        </div>
-                        <div className="col">
-                            <span className="profile-task_info_deadline">May 17th</span>
-                            <div className="profile-task_info_members">
-                                <img src="#" alt="user picture"/>
+                    <div className="profile-task row">
+                        <div className="profile-task_info card card-secondary width-100">
+                            <div className="row task-inner-card-border">
+                                <div className="col">
+                                    <h4 className="profile-task_info_title">Design File Uploader</h4>
+                                    <span className="profile-task_info_project">Project: Team Management App</span>
+                                </div>
+                                <div className="col">
+                                    <div className="row remove-padding justify-end align-items-center height-100">
+                                        <span className="profile-task_info_deadline">May 17th</span>
+                                        <div className="profile-task_info_members card remove-padding gutter-s-left">
+                                            <img src="https://via.placeholder.com/24" alt="user picture"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
