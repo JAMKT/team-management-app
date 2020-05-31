@@ -7,8 +7,8 @@ export default function Comment() {
                 <img className="user-icon" src="https://via.placeholder.com/32" />
             </div>
             <div className="col">
-                <h4>Name Last-name</h4>
-                <p>Comment text goes here...</p>
+                <h4>Kirsten Hansen</h4>
+                <p>As mentioned in the post, please contact me (or write a comment here) if you have questions. :)</p>
             </div>
         </div>
     )
