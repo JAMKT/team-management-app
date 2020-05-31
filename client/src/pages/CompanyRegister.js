@@ -41,7 +41,11 @@ export default function CompanyRegister(props) {
 
         const data = {
             email: formState.inputs.email.value,
-            password: formState.inputs.password.value
+            companyName: formState.inputs.companyName.value,
+            description: formState.inputs.description.value,
+            owner: formState.inputs.owner.value,
+            address: formState.inputs.address.value,
+            workHours: formState.inputs.workHours.value,
         }
 
         const config = {
@@ -53,7 +57,7 @@ export default function CompanyRegister(props) {
 
         axios.post('/api/users/register', data, config)
             .then((foundUser) => {
-                
+                props.history.push('/register-success');
             })
             .catch(err => console.log(err));
     }
