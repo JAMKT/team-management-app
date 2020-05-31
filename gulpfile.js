@@ -1,17 +1,17 @@
-const gulp = require('gulp');
+const gulp, { wait } = require('gulp');
 const sass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 
 const paths = {
-    src: './client/src',
+    src: './client/src/**/*.scss',
     build: './client/public/styles'
 };
 
 // Compiles SASS to CSS
 gulp.task("compileSass", () => { 
-    return gulp.src(paths.src + '/**/*.scss')
+    return gulp.src(paths.src)
         .pipe(concat('index.css'))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(paths.build + '/css')); 
@@ -27,7 +27,7 @@ gulp.task("minifyCss", () => {
 
 // Checks for changes and runs the tasks above
 gulp.task("watch", () => { 
-    gulp.watch(paths.src + '/*.scss', gulp.series('compileSass'));
+    gulp.watch(paths.src, gulp.series('compileSass'));
     gulp.watch(paths.build + '/css/*.css', gulp.series('minifyCss'));
 });
 
