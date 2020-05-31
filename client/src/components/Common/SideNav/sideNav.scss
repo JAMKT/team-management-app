@@ -1,0 +1,11 @@
+.selected svg path {
+    fill: #11013b;
+}
+
+li{
+    svg{
+        display: block;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+}
