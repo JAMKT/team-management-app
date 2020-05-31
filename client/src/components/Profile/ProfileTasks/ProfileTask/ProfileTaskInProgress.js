@@ -8,18 +8,23 @@ const ProfileTaskInProgress = (props) => {
     return (
         <div id="profile-task_in-progress">
             <div className="row">
-                <h1 className="width-100">Task title here</h1>
-                <p>Project: Project name goes here</p>
+                <h1 className="width-100">Design profile component</h1>
+                <p>Project: Team Management App</p>
             </div>
             <div className="row">
-                Task content component here... 
+                <p>This task will be divided in three parts: </p>
+                <ul>
+                    <li>Design of the UI in Figma</li>
+                    <li>Frontend development with React</li>
+                    <li>Backend development in Node.js</li>
+                </ul>
             </div>
             <div className="row">
-                If anyone has a question, contact <span><b>NAME LASTNAME</b></span>
+                <p>If anyone has a question, contact <span><b>Kirsten Hansen</b></span>.</p>
             </div>
             <div className="row">
                 <div>
-                    <span>Deadline: date goes here...</span>
+                    <span>Deadline: May 15th</span>
                     <div className="progress-bar-wrapper">
                         <div className="progress-bar"></div>
                     </div>
