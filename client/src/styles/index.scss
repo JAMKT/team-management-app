@@ -75,7 +75,6 @@ body{
     top: 0;
     height: 100vh;
     background-color: $primary-bg-color;
-    transition: 0.3s ease-in-out;
 }
 
 .side-nav-bar {
@@ -358,7 +357,6 @@ label{
     border-radius: 8px;
     padding: 24px;
     background-color: $card-color;
-    box-shadow: 1px 1px 4px $shadow-color;
 }
 .bottom-border{
     border-bottom: 1px solid $border-color;
