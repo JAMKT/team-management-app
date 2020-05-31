@@ -5,13 +5,13 @@ const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 
 const paths = {
-    src: './client/src/styles',
+    src: './client/src',
     build: './client/public/styles'
 };
 
 // Compiles SASS to CSS
 gulp.task("compileSass", () => { 
-    return gulp.src(paths.src + '/*.scss')
+    return gulp.src(paths.src + '/**/*.scss')
         .pipe(concat('index.css'))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(paths.build + '/css')); 
