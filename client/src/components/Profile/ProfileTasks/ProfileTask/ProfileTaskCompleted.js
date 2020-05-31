@@ -6,7 +6,6 @@ import SearchField from '../../../Common/SearchFIeld/SearchField';
 const ProfileTaskCompleted = (props) => {
     return (
         <div id="profile-task_completed">
-        
             <div className="row">
                 <SearchField/>
             </div>
