@@ -270,7 +270,8 @@ label {
 .card {
   border-radius: 8px;
   padding: 24px;
-  background-color: #fff; }
+  background-color: #fff;
+  box-shadow: 1px 1px 4px #C7CFD4; }
 
 .bottom-border {
   border-bottom: 1px solid #C7CFD4;
