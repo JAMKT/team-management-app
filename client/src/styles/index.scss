@@ -17,14 +17,14 @@ body{
 .container{
     
     margin-left: 72px;
-    margin-top: 72px;
+    margin-top: 50px !important;
     padding: 36px;
     display: flex;
     flex-flow: column wrap;
 }
 .container-simple{
     box-sizing: border-box;
-    padding: 36px;
+    padding: 15px;
     display: flex;
     flex-flow: column wrap;
 }
