@@ -257,6 +257,7 @@ body{
     img{
         border-radius: 50%;
         margin-left: 12px;
+        width: 24px;
     }
 }
 
@@ -527,6 +528,7 @@ label{
 .user-profile-pic{
     border-radius: 100%;
     overflow: hidden;
+    width: 84px;
 }
 .user-profile-col-fixed{
     flex: none;

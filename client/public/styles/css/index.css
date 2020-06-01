@@ -205,7 +205,8 @@ body {
     color: #fff; }
   #user-profile-nav img {
     border-radius: 50%;
-    margin-left: 12px; }
+    margin-left: 12px;
+    width: 24px; }
 
 /* Login pages */
 .middle-floating-card {
@@ -453,7 +454,8 @@ label {
 /* User Card */
 .user-profile-pic {
   border-radius: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 84px; }
 
 .user-profile-col-fixed {
   flex: none;

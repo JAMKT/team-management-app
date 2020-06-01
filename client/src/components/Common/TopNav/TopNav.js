@@ -12,7 +12,7 @@ export default function TopNav() {
                 <Link to="/profile">
                     <div id="user-profile-nav">
                         <span>{user.currUser.firstName + " " + user.currUser.lastName}</span>
-                        <img src = "https://via.placeholder.com/24" />
+                        <img src = "https://avatars0.githubusercontent.com/u/35849672?s=460&u=ea1314f7bdb26663f6168e24b3f7ee53a24b9d63&v=4" />
                     </div>
                 </Link>
                 

@@ -12,7 +12,7 @@ export default function UserCardVertical(props) {
         <div className="row">
             <div className="col">
                 <div className="row justify-center ">
-                    <img className="user-profile-pic" src="https://via.placeholder.com/84" />
+                    <img className="user-profile-pic" src="https://avatars0.githubusercontent.com/u/35849672?s=460&u=ea1314f7bdb26663f6168e24b3f7ee53a24b9d63&v=4" />
                 </div>
                 <div className="row justify-center">
                     <h3>{userData.username}</h3>     
