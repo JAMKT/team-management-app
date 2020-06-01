@@ -66,8 +66,7 @@ body {
   left: 0;
   top: 0;
   height: 100vh;
-  background-color: #586FCA;
-  transition: 0.3s ease-in-out; }
+  background-color: #586FCA; }
 
 .side-nav-bar {
   width: 60px;
@@ -180,7 +179,7 @@ body {
   position: fixed;
   top: 0;
   right: 0;
-  height: 72px;
+  height: 48px;
   background-color: #11013B; }
 
 .top-nav-bar-positioning-wrapper {
@@ -297,8 +296,7 @@ label {
 .card {
   border-radius: 8px;
   padding: 24px;
-  background-color: #fff;
-  box-shadow: 1px 1px 4px #C7CFD4; }
+  background-color: #fff; }
 
 .bottom-border {
   border-bottom: 1px solid #C7CFD4;
@@ -372,6 +370,9 @@ label {
 .no-wrap {
   flex-wrap: nowrap !important; }
 
+.remove-padding {
+  padding: 0 !important; }
+
 /* Profile */
 .col-fixed-300 {
   width: 300px;
@@ -426,6 +427,17 @@ label {
 .tab-inactive {
   color: #000;
   background-color: #E5E9EC; }
+
+.task-inner-card-border {
+  padding: 6px 0px 6px 12px;
+  border-left: 4px solid #586FCA; }
+
+.profile-task_info_title {
+  margin-bottom: 4px; }
+
+.profile-task_info_members img {
+  padding: 8px;
+  border-radius: 40px; }
 
 /* Pill */
 .pill {

@@ -11,7 +11,7 @@ const ProfileTaskInProgress = (props) => {
                 <h1 className="width-100">Design profile component</h1>
                 <p>Project: Team Management App</p>
             </div>
-            <div className="row">
+            <div className="col">
                 <p>This task will be divided in three parts: </p>
                 <ul>
                     <li>Design of the UI in Figma</li>
