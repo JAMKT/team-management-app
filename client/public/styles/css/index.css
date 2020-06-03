@@ -175,7 +175,7 @@ body {
   margin: 6px 0; }
 
 #top-nav-bar {
-  width: calc(100vw - 72px);
+  width: calc(100vw - 60px);
   position: fixed;
   top: 0;
   right: 0;
