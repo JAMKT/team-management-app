@@ -12,7 +12,7 @@ export default function TopNav() {
                 <Link to="/profile">
                     <div id="user-profile-nav">
                         <span>{user.currUser.firstName + " " + user.currUser.lastName}</span>
-                        <img src = "https://avatars0.githubusercontent.com/u/35849672?s=460&u=ea1314f7bdb26663f6168e24b3f7ee53a24b9d63&v=4" />
+                        <img src = "https://media-exp1.licdn.com/dms/image/C5603AQHcmpKwxcuu7Q/profile-displayphoto-shrink_200_200/0?e=1595462400&v=beta&t=5Qqcq0Zt0cfasXlM8sePrA9KTcRHFuonPoOPCXiZqw0" />
                     </div>
                 </Link>
                 
