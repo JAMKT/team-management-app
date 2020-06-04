@@ -1,9 +1,13 @@
 {
   "name": "team-management-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.14.1"
+  },
   "description": "Team management application",
   "main": "server.js",
   "dependencies": {
+    "aws-sdk": "^2.690.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",
@@ -28,7 +32,8 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"gulp\""
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"gulp\"",
+    "heroku-postbuild": "NPM_CONFIG__PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
