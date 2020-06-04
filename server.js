@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require("passport");
 const session = require("express-session");
-const sessionSecret = require('./config/sessionConfig').secret;
+const sessionSecret = require('./config/sessionConfig').secret || process.env.SESSION_CONF;
 
 // Require routes
 const users = require('./routes/api/Users');
@@ -15,6 +15,7 @@ const onboardings = require('./routes/api/Onboardings');
 const projects = require('./routes/api/Projects');
 const responsibilities = require('./routes/api/Responsibilities');
 const tasks = require('./routes/api/Tasks');
+const aws = require('aws-sdk');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
@@ -24,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./config/passport')(passport);
 
 // DB Config
-const db = require('./config/dbKeys').mongoURI;
+const db = require('./config/dbKeys').mongoURI || process.env.PROD_DB;
 
 // Connect to MongoDB
 mongoose.connect(db, { 
