@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require("passport");
 const session = require("express-session");
-const sessionSecret = require('./config/sessionConfig').secret || process.env.SESSION_CONF;
+const sessionSecret = process.env.SESSION_CONF || require('./config/sessionConfig').secret;
 
 // Require routes
 const users = require('./routes/api/Users');
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 require('./config/passport')(passport);
 
 // DB Config
-const db = require('./config/dbKeys').mongoURI || process.env.PROD_DB;
+const db = process.env.PROD_DB || require('./config/dbKeys').mongoURI;
 
 // Connect to MongoDB
 mongoose.connect(db, { 
