@@ -2,7 +2,7 @@
   "name": "team-management-app",
   "version": "1.0.0",
   "engines": {
-    "node": "12.14.1"
+    "node": "14.2.0"
   },
   "description": "Team management application",
   "main": "server.js",
