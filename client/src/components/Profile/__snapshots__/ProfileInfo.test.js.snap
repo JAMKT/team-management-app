@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`expect to render ProfileInfo component (make a snapshot) 1`] = `
+"<div id=\\"profile-info\\" className=\\"col card col-fixed-372\\">
+  <div className=\\"row justify-end\\">
+    <button className=\\"edit-btn\\">
+      Edit
+    </button>
+  </div>
+  <UserCardVertical user={{...}} />
+  <div className=\\"row\\">
+    <h3>
+      Who am I?
+    </h3>
+  </div>
+  <div className=\\"row\\">
+    <p />
+  </div>
+  <div className=\\"row\\">
+    <h3>
+      Contact information
+    </h3>
+  </div>
+  <div className=\\"row\\">
+    <div className=\\"col\\">
+      <div className=\\"row\\">
+        <span />
+      </div>
+      <div className=\\"row\\">
+        <span />
+      </div>
+    </div>
+  </div>
+  <div className=\\"row\\">
+    <h3>
+      Workload
+    </h3>
+  </div>
+  <div className=\\"row\\">
+    Workload Widget...
+  </div>
+</div>"
+`;
