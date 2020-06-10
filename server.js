@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require("passport");
 const session = require("express-session");
 const sessionSecret = process.env.SESSION_CONF || require('./config/sessionConfig').secret;
+const path = require('path');
 
 // Require routes
 const users = require('./routes/api/Users');
