@@ -408,6 +408,7 @@ label {
   border: none;
   outline: none; }
 
+@use '../../styles/_variables';
 .side-nav-bar,
 .side-nav-bar-opened {
   position: fixed;
