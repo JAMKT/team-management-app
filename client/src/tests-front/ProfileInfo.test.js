@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import ProfileInfo from './ProfileInfo';
+import ProfileInfo from '../components/Profile/ProfileInfo.js';
 
 //Testing if the ProfileInfo component is rendered
 it('expect to render ProfileInfo component', () => {

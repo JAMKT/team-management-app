@@ -24,17 +24,23 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.0.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "sass": "^1.26.5",
     "serve-favicon": "^2.5.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
+    "jest": "^26.0.1"
+  },
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"gulp\"",
-    "heroku-postbuild": "NPM_CONFIG__PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG__PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "test": "concurrently \"jest test/\" \"npm test --prefix client\""
   },
   "repository": {
     "type": "git",
