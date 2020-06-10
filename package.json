@@ -40,7 +40,9 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" \"gulp\"",
     "heroku-postbuild": "NPM_CONFIG__PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "test": "jest tests/"
+    "test": "concurrently \"npm test --prefix client\" \"jest tests/\"",
+    "test-front": "npm test --prefix client",
+    "test-back": "jest tests/"
   },
   "repository": {
     "type": "git",
