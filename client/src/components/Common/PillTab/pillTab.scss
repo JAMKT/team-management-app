@@ -1,0 +1,22 @@
+.pill-tab {
+    border-radius: 4px;
+    padding: 6px 0;
+    background-color: $primary-bg-color;
+    width: 100%;
+    color: $card-color;
+    max-width: 210px;
+    margin-bottom: 6px;
+}
+
+.pill-tab h4 {
+    font-weight: 400 !important;
+}
+
+.pill-top-offset {
+    padding-top: 37px;
+}
+
+.pill-tab-horizontal .pill-tab {
+    margin-bottom: 0 !important;
+    margin-right: 12px;
+}

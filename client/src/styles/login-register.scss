@@ -1,0 +1,99 @@
+.middle-floating-card {
+    display: block;
+    margin: 120px auto;
+    max-width: 480px;
+    background-color: $card-color;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.relative-inner-wrapper {
+    padding: 24px;
+    padding-top: 72px;
+}
+
+.half-out-logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    overflow: hidden;
+    height: 84px;
+    width: 84px;
+}
+
+.form-wrapper {
+    padding: 36px 0;
+}
+
+.input-container {
+    margin-bottom: 10px;
+}
+
+.text-input-field {
+    margin-bottom: 6px;
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    background-color: $input-field-color;
+    padding: 16px;
+    border-radius: 8px;
+    outline: none;
+
+    &:focus {
+        border: 1.5px solid #586fca;
+    }
+}
+
+.full-width-btn {
+    padding: 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    font-weight: 700;
+    color: $card-color;
+    cursor: pointer;
+}
+
+.position-middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.col-number-fixed {
+    flex: none;
+    width: auto;
+    max-width: 84px;
+    font-size: 25px;
+}
+
+.register-input-field {
+    outline: none;
+    border: none;
+    background: transparent;
+    max-width: 480px;
+    width: 480px;
+    font-size: 25px;
+    border-bottom: 3px solid $primary-bg-color;
+}
+
+.register-label {
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.field-selector-list {
+    width: 100%;
+}
+
+.field-selector-list li {
+    background-color: $card-color;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 6px;
+    border-radius: 4px;
+}

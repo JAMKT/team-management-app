@@ -1,0 +1,18 @@
+.search-field-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    border-radius: 50px;
+    background: $input-field-color;
+    width: 100%;
+}
+
+.search-field-wrapper img {
+    padding: 4px 8px 4px 16px;
+}
+
+.search-field {
+    width: calc(100% - 48px);
+    background: transparent;
+    border: none;
+    outline: none;
+}
