@@ -5,15 +5,15 @@ const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 
 const paths = {
-    src: './client/src/styles',
+    src: './client/src',
     build: './client/public/styles'
 };
 
 // Compiles SASS to CSS
 gulp.task("compileSass", () => { 
-    return gulp.src(paths.src + '/*.scss')
+    return gulp.src(paths.src + '/**/*.scss')
         .pipe(concat('index.css'))
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ includePaths : [paths.src + '/styles/'] }).on('error', sass.logError))
         .pipe(gulp.dest(paths.build + '/css')); 
 });
 
@@ -27,7 +27,7 @@ gulp.task("minifyCss", () => {
 
 // Checks for changes and runs the tasks above
 gulp.task("watch", () => { 
-    gulp.watch(paths.src + '/*.scss', gulp.series('compileSass'));
+    gulp.watch(paths.src + '/**/*.scss', gulp.series('compileSass'));
     gulp.watch(paths.build + '/css/*.css', gulp.series('minifyCss'));
 });
 
