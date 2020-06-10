@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const passport = require("passport");
 const session = require("express-session");
 const sessionSecret = process.env.SESSION_CONF || require('./config/sessionConfig').secret;
+const path = require("path");
+const favicon = require("serve-favicon");
 
 // Require routes
 const users = require('./routes/api/Users');
@@ -66,12 +68,15 @@ app.use((req, res, next) => {
     next();
 });
 
+app.use(favicon(path.join(dirname, "build", "favicon.ico")));
+app.use(express.static(path.join(dirname, "build")));
+
 //Serve static assets if we are in production
 if(process.env.NODE_ENV === 'production'){
     //Set static folder
     app.use(express.static('client/build')); 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
     });
 }
 
