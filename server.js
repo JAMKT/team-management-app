@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 const passport = require("passport");
 const session = require("express-session");
 const sessionSecret = process.env.SESSION_CONF || require('./config/sessionConfig').secret;
-const path = require("path");
-const favicon = require("serve-favicon");
+const path = require('path');
 
 // Require routes
 const users = require('./routes/api/Users');
@@ -67,9 +66,6 @@ app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
 });
-
-app.use(favicon(path.join(dirname, "build", "favicon.ico")));
-app.use(express.static(path.join(dirname, "build")));
 
 //Serve static assets if we are in production
 if(process.env.NODE_ENV === 'production'){
