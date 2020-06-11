@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { VALIDATOR_MINLENGTH, VALIDATOR_EMAIL, VALIDATOR_MAXLENGTH } from '../components/util/validator';
+import { VALIDATOR_MINLENGTH, VALIDATOR_EMAIL, VALIDATOR_MAXLENGTH, VALIDATOR_REQUIRE } from '../components/util/validator';
 
 import Input from '../components/Common/FormElements/Input';
 import Button from '../components/Common/Button/Button';
@@ -92,6 +92,7 @@ export default function UserRegister(props) {
                                 errorText="Please enter a valid email."
                                 validator={[VALIDATOR_EMAIL()]}
                                 onInput={inputHandler}
+                                errorStyle="error-border"
                                 inputStyle="text-input-field"
                             />
 
@@ -103,19 +104,18 @@ export default function UserRegister(props) {
                                 errorText="Password must be at least 6 characters."
                                 validator={[VALIDATOR_MINLENGTH(6)]}
                                 onInput={inputHandler}
+                                errorStyle="error-border"
                                 inputStyle="text-input-field"
                             />
-                            <div className="row top-margin-m">
-                                    <h4>Profile information is optional...</h4>
-                            </div>
                             <Input
                                 id="firstName"
                                 type="text"
                                 label="First Name"
                                 placeholder="First Name"
-                                errorText="Name can't exceed 256 characters"
-                                validator={[VALIDATOR_MAXLENGTH(256)]}
+                                errorText="Please enter your first name"
+                                validator={[VALIDATOR_REQUIRE()]}
                                 onInput={inputHandler}
+                                errorStyle="error-border"
                                 inputStyle="text-input-field"
                             />
                             <Input
@@ -123,9 +123,10 @@ export default function UserRegister(props) {
                                 type="text"
                                 label="Last Name"
                                 placeholder="Last Name"
-                                errorText="Name can't exceed 256 characters"
-                                validator={[VALIDATOR_MAXLENGTH(256)]}
+                                errorText="Please enter your last name"
+                                validator={[VALIDATOR_REQUIRE()]}
                                 onInput={inputHandler}
+                                errorStyle="error-border"
                                 inputStyle="text-input-field"
                             />
                             <Input
@@ -133,9 +134,10 @@ export default function UserRegister(props) {
                                 type="text"
                                 label="Username"
                                 placeholder="Username"
-                                errorText="Password must be at least 6 characters."
-                                validator={[VALIDATOR_MINLENGTH(6)]}
+                                errorText="Plese enter a username"
+                                validator={[VALIDATOR_REQUIRE()]}
                                 onInput={inputHandler}
+                                errorStyle="error-border"
                                 inputStyle="text-input-field"
                             />
                             <Input
@@ -143,9 +145,10 @@ export default function UserRegister(props) {
                                 type="text"
                                 label="Job Title"
                                 placeholder="Job Title"
-                                errorText="Password must be at least 6 characters."
-                                validator={[VALIDATOR_MINLENGTH(6)]}
+                                errorText="Please enter your job title"
+                                validator={[VALIDATOR_REQUIRE()]}
                                 onInput={inputHandler}
+                                errorStyle="error-border"
                                 inputStyle="text-input-field"
                             />
 
