@@ -1,3 +1,4 @@
+//Configuration for jest-mongoDB preset
 module.exports = {
     mongodbMemoryServerOptions: {
       instance: {
