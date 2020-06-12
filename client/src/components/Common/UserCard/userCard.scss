@@ -1,0 +1,11 @@
+@import '../../../styles/_variables';
+
+.user-profile-pic {
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.user-profile-col-fixed {
+    flex: none;
+    width: 84px;
+}
