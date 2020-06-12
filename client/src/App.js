@@ -84,16 +84,6 @@ const App = () => {
             <Route path="/user-register" component={ UserRegister }/>
             <Route path="/register-success" component={ RegisterSuccess }/>
           </Switch>
-
-
-          <div className="container">
-            <Link to="/login">Login</Link>
-            <Link to ="/user-register">User Register</Link>
-            <Link to ="/company-register">Company Register</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/onboarding-documentation">Onboarding Documentation</Link>
-          </div>
-
         </BrowserRouter>
       </AuthContext.Provider>
     </div>
