@@ -1,0 +1,38 @@
+@import '../../../styles/_variables';
+
+.comment-icon-col {
+    flex: none;
+    width: 60px !important;
+    padding: 0 12px;
+}
+
+.comment-input-field-wrapper {
+    display: flex;
+    border-radius: 50px;
+    background-color: $card-color;
+}
+
+.comment-input-field-wrapper img {
+    padding: 8px 16px;
+}
+
+.comment-input-field {
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    background: transparent;
+}
+
+
+/* Feed Item */
+.feed-item {
+    padding: 24px 12px;
+    margin-bottom: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.feed-item:hover {
+    background-color: $card-color-secondary;
+}

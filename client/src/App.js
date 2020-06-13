@@ -77,6 +77,9 @@ const App = () => {
       <AuthContext.Provider value={{loggedIn: loggedIn, login: login, logout: logout, currUser: currUser}}>
         <BrowserRouter>
           <Switch>
+            <Route exact path="/">
+              <Redirect to="/login"/>
+            </Route>
             <Route path="/login" component={ Login } />
             <PrivateRoute path="/profile" component={ Profile } />
             <PrivateRoute path="/onboarding-documentation" component={ OnboardingDocumentation } />
@@ -84,16 +87,6 @@ const App = () => {
             <Route path="/user-register" component={ UserRegister }/>
             <Route path="/register-success" component={ RegisterSuccess }/>
           </Switch>
-
-
-          <div className="container">
-            <Link to="/login">Login</Link>
-            <Link to ="/user-register">User Register</Link>
-            <Link to ="/company-register">Company Register</Link>
-            <Link to="/profile">Profile</Link>
-            <Link to="/onboarding-documentation">Onboarding Documentation</Link>
-          </div>
-
         </BrowserRouter>
       </AuthContext.Provider>
     </div>

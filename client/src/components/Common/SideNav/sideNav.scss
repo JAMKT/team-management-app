@@ -1,0 +1,169 @@
+@import '../../../styles/_variables';
+
+.side-nav-bar,
+.side-nav-bar-opened {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    background-color: $primary-bg-color;
+}
+
+.side-nav-bar {
+    width: 60px;
+    transition: 0.3s ease-in-out;
+}
+
+.side-nav-bar-opened {
+    width: 240px;
+}
+
+.side-nav-bar-positioning-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    justify-content: space-between;
+
+    .side-nav-bar-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        list-style: none;
+        padding-left: 12px;
+
+        li {
+            &:hover {
+                svg {
+
+                    path,
+                    rect {
+                        fill: $darkblue;
+                        transition: 0.2s ease-out;
+                    }
+                }
+
+                span {
+                    color: $darkblue;
+                    transition: 0.2s ease-out;
+                }
+
+            }
+
+            .selected {
+                svg path {
+                    fill: $darkblue
+                }
+            }
+
+            svg {
+                display: block;
+                margin: 14px 5px;
+                cursor: pointer;
+            }
+
+            a {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: right;
+                text-decoration: none;
+            }
+
+            img {
+                padding: 8px;
+                display: block;
+                cursor: pointer;
+            }
+
+            span {
+                color: $card-color;
+                font-weight: bold;
+                text-decoration: none;
+                margin-left: 10px;
+                border: none;
+                outline: none;
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+
+#settings-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+    margin: 12px;
+    border: none;
+    padding: 0;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover {
+        span {
+            color: $darkblue;
+        }
+
+        svg path {
+            fill: $darkblue;
+        }
+    }
+
+    img {
+        padding: 8px;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    span {
+        color: $card-color;
+        font-weight: bold;
+        text-decoration: none;
+        margin-left: 10px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+    }
+}
+
+.burger-btn {
+    display: block;
+    width: 36px;
+    height: 36px;
+    padding: 0px 5.5px;
+    margin: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s ease-in-out;
+
+    img {
+        color: $card-color;
+    }
+
+    &:hover {
+        .burger-line {
+            background-color: $darkblue;
+        }
+
+        svg path {
+            fill: $darkblue;
+        }
+
+    }
+}
+
+.burger-line {
+    border-radius: 2px;
+    background-color: $card-color;
+    display: block;
+    width: 28px;
+    height: 4px;
+    margin: 6px 0;
+}

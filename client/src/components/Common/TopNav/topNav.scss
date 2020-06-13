@@ -1,0 +1,42 @@
+@import '../../../styles/_variables';
+
+#top-nav-bar {
+    width: calc(100vw - 72px);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 72px;
+    background-color: $top-nav;
+}
+
+.top-nav-bar-positioning-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    padding: 8px;
+    margin: 8px;
+    margin-left: 24px;
+}
+
+#user-profile-nav {
+    margin-right: 24px;
+    color: $card-color;
+    display: flex;
+    align-items: center;
+
+    span {
+        font-size: 16px;
+        font-weight: 700;
+        color: $card-color;
+    }
+
+    img {
+        border-radius: 50%;
+        margin-left: 12px;
+    }
+}
