@@ -77,6 +77,9 @@ const App = () => {
       <AuthContext.Provider value={{loggedIn: loggedIn, login: login, logout: logout, currUser: currUser}}>
         <BrowserRouter>
           <Switch>
+            <Route exact path="/">
+              <Redirect to="/login"/>
+            </Route>
             <Route path="/login" component={ Login } />
             <PrivateRoute path="/profile" component={ Profile } />
             <PrivateRoute path="/onboarding-documentation" component={ OnboardingDocumentation } />
