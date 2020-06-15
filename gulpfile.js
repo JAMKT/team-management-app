@@ -12,8 +12,8 @@ const paths = {
 // Compiles SASS to CSS
 gulp.task("compileSass", () => { 
     return gulp.src(paths.src + '/**/*.scss')
-        .pipe(concat('index.css'))
         .pipe(sass({ includePaths : [paths.src + '/styles/'] }).on('error', sass.logError))
+        .pipe(concat('index.css'))
         .pipe(gulp.dest(paths.build + '/css')); 
 });
 

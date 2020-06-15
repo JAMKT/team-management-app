@@ -183,6 +183,7 @@ label {
 /* Search Field */
 /* Pill Tab */
 /* Register */
+
 .middle-floating-card {
   display: block;
   margin: 120px auto;
@@ -408,7 +409,6 @@ label {
   border: none;
   outline: none; }
 
-@use '../../styles/_variables';
 .side-nav-bar,
 .side-nav-bar-opened {
   position: fixed;
@@ -525,7 +525,7 @@ label {
   margin: 6px 0; }
 
 #top-nav-bar {
-  width: calc(100vw - 72px);
+  width: calc(100vw - 60px);
   position: fixed;
   top: 0;
   right: 0;
