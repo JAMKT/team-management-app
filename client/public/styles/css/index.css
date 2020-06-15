@@ -183,6 +183,7 @@ label {
 /* Search Field */
 /* Pill Tab */
 /* Register */
+
 .middle-floating-card {
   display: block;
   margin: 120px auto;
@@ -373,6 +374,22 @@ label {
   color: #fff;
   max-width: 210px; }
 
+.search-field-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 50px;
+  background: #E5E9EC;
+  width: 100%; }
+
+.search-field-wrapper img {
+  padding: 4px 8px 4px 16px; }
+
+.search-field {
+  width: calc(100% - 48px);
+  background: transparent;
+  border: none;
+  outline: none; }
+
 .pill-tab {
   border-radius: 4px;
   padding: 6px 0;
@@ -392,23 +409,6 @@ label {
   margin-bottom: 0 !important;
   margin-right: 12px; }
 
-.search-field-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  border-radius: 50px;
-  background: #E5E9EC;
-  width: 100%; }
-
-.search-field-wrapper img {
-  padding: 4px 8px 4px 16px; }
-
-.search-field {
-  width: calc(100% - 48px);
-  background: transparent;
-  border: none;
-  outline: none; }
-
-@use '../../styles/_variables';
 .side-nav-bar,
 .side-nav-bar-opened {
   position: fixed;
